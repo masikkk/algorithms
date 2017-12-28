@@ -1,2 +1,1 @@
-# leetcode-java
-LeetCode solutions, java°æ 
+# LeetCode Solution Javaç‰ˆ
