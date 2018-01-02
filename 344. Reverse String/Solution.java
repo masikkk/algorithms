@@ -1,5 +1,5 @@
 class Solution {
-	//char½»»»
+	//char swap
 	public String reverseString(String s){
 		char[] charStr = s.toCharArray();
 		int length = s.length();
@@ -12,7 +12,7 @@ class Solution {
 		return result;
 	}
 	
-	//Time Limit Exceeded
+	//First submit£¬Time Limit Exceeded
     public String reverseString1(String s) {
         String result="";
         for(int i=0; i<s.length(); i++){
