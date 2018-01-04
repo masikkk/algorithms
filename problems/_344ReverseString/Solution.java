@@ -1,3 +1,5 @@
+package _344ReverseString;
+
 class Solution {
 	//char swap
 	public String reverseString(String s){
@@ -12,7 +14,7 @@ class Solution {
 		return result;
 	}
 	
-	//First submit��Time Limit Exceeded
+	//第一次提交: Time Limit Exceeded
     public String reverseString1(String s) {
         String result="";
         for(int i=0; i<s.length(); i++){
@@ -26,3 +28,4 @@ class Solution {
     	System.out.println(solution.reverseString("Masikkk"));
     }
 }
+
