@@ -18,4 +18,5 @@ Output: false
 ```
 
 # 相关博文
+http://madaimeng.com/article/LeetCode.657.JudgeRouteCircle/
 
