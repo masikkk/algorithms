@@ -1,4 +1,4 @@
-package _344ReverseString;
+package _344_ReverseString;
 
 class Solution {
 	//char swap
