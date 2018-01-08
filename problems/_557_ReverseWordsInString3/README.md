@@ -12,4 +12,4 @@ Output: "s'teL ekat edoCteeL tsetnoc"
 Note: In the string, each word is separated by single space and there will not be any extra space in the string.
 
 # 相关博文
-http://madaimeng.com
+http://madaimeng.com/article/LeetCode.557.ReverseWordsInString3/
