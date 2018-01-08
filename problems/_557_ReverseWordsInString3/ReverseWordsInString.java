@@ -1,7 +1,8 @@
 package _557_ReverseWordsInString3;
 
 class Solution {
-    public String reverseWords(String s) {
+	//手动处理版
+    public String reverseWords1(String s) {
         char[] str = s.toCharArray();
         int start=0; //要反转的子串的起始位置
         int length=0; //要反转的子串的长度
@@ -34,6 +35,16 @@ class Solution {
     	}
     	return str;
     }
+    
+    //java方法版
+    public String reverseWords(String s) {
+    	String split[] = s.split(" ",-1);//空格分割字符串，-1会保留空字符串
+    	for(int i=0; i<split.length; i++){
+    		StringBuffer stringBuffer = new StringBuffer(split[i]);
+    		split[i] = stringBuffer.reverse().toString();
+    	}
+    	return String.join(" ", split);//空格连接split集合成字符串
+    }
 }
 
 public class ReverseWordsInString {
@@ -42,7 +53,7 @@ public class ReverseWordsInString {
 		char[] str = {'m','a','d','a','i'};
 		System.out.println(solution.reverse(str,0,str.length-1));
 		
-		System.out.println(solution.reverseWords("I love u"));
+		System.out.println(solution.reverseWords("  123     1"));//I love u
 	}
 }
 
