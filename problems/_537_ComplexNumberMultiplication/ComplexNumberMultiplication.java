@@ -1,6 +1,5 @@
 package _537_ComplexNumberMultiplication;
 
-
 class Solution {
 	//a=a1+a2i, b=b1+b2i，结果c=c1+c2i
     public String complexNumberMultiply(String a, String b) {

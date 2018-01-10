@@ -23,4 +23,4 @@ Note:
 2. The input strings will be given in the form of a+bi, where the integer a and b will both belong to the range of [-100, 100]. And the output should be also in this form.
 
 # 相关博文
-http://madaimeng.com/
+http://madaimeng.com/article/LeetCode.537.ComplexNumberMultiplication/
