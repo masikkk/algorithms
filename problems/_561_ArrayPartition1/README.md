@@ -16,4 +16,4 @@ Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4).
 2. All the integers in the array will be in the range of [-10000, 10000].
 
 # 相关博文
-http://madaimeng.com/
+http://madaimeng.com/article/LeetCode.561.ArrayPartition1/
