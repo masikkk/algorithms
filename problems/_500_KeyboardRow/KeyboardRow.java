@@ -23,6 +23,7 @@ class Solution {
         return resultList.toArray(new String[0]);
     }
     
+    //求ch所在的行号
     private int whichRow(char ch){
     	if(firstRow.indexOf(ch) >= 0){
     		return 1;
