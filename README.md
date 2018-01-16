@@ -3,7 +3,7 @@ See the Blog
 http://madaimeng.com/tags/LeetCode/
 
 |NO.|Problem|Blog|Solution|Level|Tag|
-|---|-------|----|--------|-----|---|
+|---|-------|----|--------|:---:|---|
 |191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.191.NumberOf1Bits/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_191_NumberOf1Bits)|Easy|Bit Manipulation|
 |344|[Reverse String](https://leetcode.com/problems/reverse-string/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.344.ReverseString/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_344_ReverseString)|Easy|Two Pointers, String|
 |419|[Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.419.BattleshipsInBoard/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_419_BattleshipsInBoard)|Medium|2D-Array|
