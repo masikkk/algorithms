@@ -15,5 +15,5 @@ Output: ["Alaska", "Dad"]
 2. You may assume the input string will only contain letters of alphabet.
 
 
-# 相关博文
+# Corresponding Blog Post
 http://madaimeng.com/article/LeetCode.500.KeyboardRow/

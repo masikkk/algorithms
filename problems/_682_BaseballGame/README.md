@@ -44,5 +44,5 @@ Round 7: You could get 9 + 5 = 14 points. The sum is 27.
 - Every integer represented in the list will be between -30000 and 30000.
 
 
-# 相关博文
+# Corresponding Blog Post
 http://madaimeng.com/article/LeetCode.682.BaseballGame/

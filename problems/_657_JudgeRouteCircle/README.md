@@ -17,6 +17,6 @@ Input: "LL"
 Output: false
 ```
 
-# 相关博文
+# Corresponding Blog Post
 http://madaimeng.com/article/LeetCode.657.JudgeRouteCircle/
 

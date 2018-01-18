@@ -7,5 +7,5 @@ Write a function that takes a string as input and returns the string reversed.
 Example:
 Given s = "hello", return "olleh".
 
-# 相关博文
+# Corresponding Blog Post
 http://madaimeng.com/article/LeetCode.344.ReverseString/

@@ -6,5 +6,5 @@ Write a function that takes an unsigned integer and returns the number of ’1' 
 
 For example, the 32-bit integer ’11' has binary representation `00000000000000000000000000001011`, so the function should return 3.
 
-# 相关博文
+# Corresponding Blog Post
 http://madaimeng.com/article/LeetCode.191.NumberOf1Bits/
