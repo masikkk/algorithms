@@ -4,9 +4,11 @@ http://madaimeng.com/tags/LeetCode/
 
 |NO.|Problem|Blog|Solution|Level|Tag|
 |---|-------|----|--------|:---:|---|
+|136|[Single Number](https://leetcode.com/problems/single-number/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.136.SingleNumber/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_136_SingleNumber)|Easy|HashTable, Bit Manipulation|
 |191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.191.NumberOf1Bits/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_191_NumberOf1Bits)|Easy|Bit Manipulation|
 |237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.237.DeleteNodeInLinkedList/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_237_DeleteNodeInALinkedList)|Easy|LinkedList|
 |344|[Reverse String](https://leetcode.com/problems/reverse-string/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.344.ReverseString/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_344_ReverseString)|Easy|Two Pointers, String|
+|389|[Find the Difference](https://leetcode.com/problems/find-the-difference/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.389.FindTheDifference/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_389_FindTheDifference)|Easy|HashTable, Bit Manipulation, Array, ArrayIndex, String|
 |412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.412.FizzBuzz/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_412_FizzBuzz)|Easy||
 |419|[Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.419.BattleshipsInBoard/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_419_BattleshipsInBoard)|Medium|2D-Array|
 |442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.442.FindAllDuplicatesInArray/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_442_FindAllDuplicatesInArray)|Medium|Array,  ArrayIndex, HashTable|
@@ -20,4 +22,3 @@ http://madaimeng.com/tags/LeetCode/
 |682|[Baseball Game](https://leetcode.com/problems/baseball-game/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.682.BaseballGame/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_682_BaseballGame)|Easy|Stack|
 |725|[Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.725.SplitLinkedListInParts/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_725_SplitLinkedListInParts)|Medium|LinkedList,  Math|
 |728|[Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/description/)|[马呆萌](http://madaimeng.com/article/LeetCode.728.SelfDividingNumbers/)|[Java](https://github.com/masikkk/leetcode-java/tree/master/problems/_728_SelfDividingNumbers)|Easy|Math|
-
