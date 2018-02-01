@@ -38,7 +38,7 @@ public class LinkedListCycle2 {
 		head.next = second;
 		second.next = third;
 		third.next = fourth;
-		fourth.next = null;
+		fourth.next = second;
 		Solution solution = new Solution();
 		if(solution.detectCycle(head)!=null)
 			System.out.println(solution.detectCycle(head).val);
