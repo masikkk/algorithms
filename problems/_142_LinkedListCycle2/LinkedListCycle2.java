@@ -12,18 +12,17 @@ class Solution {
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        for(int i=0,j=0; slow!=null && fast.next!=null; i++,j+=2){
+        while(fast!=null && fast.next!=null){
         	slow = slow.next;
         	fast = fast.next.next;
         	if(slow==fast){
-        		int circleLength = j-i;//环的长度等于相遇时快指针步长减满指针步长
-        		System.out.println("环长度："+circleLength);
-        		int length=0;//链表长度
-        		for(slow = head; slow!=null; slow=slow.next)
-        			length++;
-        		int nonCircleLength = length-circleLength;
-        		for(slow = head; nonCircleLength-->=0; slow = slow.next)
-        		return slow;
+        		//快指针从头开始以步长1前进，满指针继续前进
+        		fast = head;
+        		while(fast!=slow){
+        			fast = fast.next;
+        			slow = slow.next;
+        		}
+        		return slow;//下次相遇位置就是环入口
         	}        		
         }
         return null;
@@ -39,8 +38,11 @@ public class LinkedListCycle2 {
 		head.next = second;
 		second.next = third;
 		third.next = fourth;
-		fourth.next = fourth;
+		fourth.next = null;
 		Solution solution = new Solution();
-		System.out.println(solution.detectCycle(head).val);
+		if(solution.detectCycle(head)!=null)
+			System.out.println(solution.detectCycle(head).val);
+		else
+			System.out.println("null");
 	}
 }
