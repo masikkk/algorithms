@@ -30,11 +30,29 @@ class Solution {
     	System.out.println(maxSub);
     	return max;
     }
+    
+    public int lengthOfLongestSubstring2(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            if (map.containsKey(s.charAt(j))) {
+            	System.out.print("i:"+i+",j:"+j+",重复:"+s.charAt(j)+"，s.charAt("+j+"): "+map.get(s.charAt(j)));
+                i = Math.max(map.get(s.charAt(j)), i); 
+            }
+            ans = Math.max(ans, j - i + 1);
+            System.out.println("， i:"+i+",j:"+j+", ans:"+ans);
+            map.put(s.charAt(j), j + 1);
+        }
+        return ans;
+    }    
+    
 }
 
 public class LongestSubstringWithoutRepeatingCharacters {
 	public static void main(String[] args){
 		Solution solution = new Solution();
-		System.out.println(solution.lengthOfLongestSubstring("a"));
+		System.out.println(solution.lengthOfLongestSubstring("abba"));//abbba
+		System.out.println(solution.lengthOfLongestSubstring2("abba"));
 	}
 }
