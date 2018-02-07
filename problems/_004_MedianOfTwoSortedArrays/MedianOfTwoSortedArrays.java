@@ -1,6 +1,7 @@
 package _004_MedianOfTwoSortedArrays;
 
 class Solution {
+	//归并排序法
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] res = new int[nums1.length+nums2.length];
         int i=0,j=0,k=0;
@@ -20,8 +21,8 @@ class Solution {
 
 public class MedianOfTwoSortedArrays {
 	public static void main(String[] args){
-		int[] nums1 = {1,2};
-		int[] nums2 = {3,4};
+		int[] nums1 = {1,3};
+		int[] nums2 = {2};
 		Solution solution = new Solution();
 		System.out.println(solution.findMedianSortedArrays(nums1, nums2));
 	}
