@@ -18,11 +18,13 @@ class Solution {
     //只逆置x的后半段，和前半段比较
     public boolean isPalindrome(int x) {
     	//10的倍数(除了0)肯定不是回文数，因为逆置后第一位的0会被舍去
+    	//必须单独处理10的倍数，否则遇到122100这种除0外是回文的会出错
     	if(x<0 || (x%10==0 && x!=0))
     		return false;
     	int reverse=0;
     	while(reverse <= x){ //当x<reverse时，表明已处理了x的后半段
     		reverse = reverse*10 + x%10;
+    		//在x除以10前后都和reverse比较一下是为了能同时应对偶数位回文(1221)和奇数位回文(121)
     		if(reverse==x)
     			return true;
     		x = x/10;
@@ -36,6 +38,6 @@ class Solution {
 public class PalindromeNumber {
 	public static void main(String[] args){
 		Solution solution = new Solution();
-		System.out.println(solution.isPalindrome(12210));//-2147483648,2147447412,2147483647
+		System.out.println(solution.isPalindrome(1221000));//-2147483648,2147447412,2147483647
 	}
 }
