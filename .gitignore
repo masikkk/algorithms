@@ -3,3 +3,8 @@
 /.classpath
 /.project
 /.settings/
+
+.DS_STore
+
+### IntelliJ IDEA ###
+.idea
