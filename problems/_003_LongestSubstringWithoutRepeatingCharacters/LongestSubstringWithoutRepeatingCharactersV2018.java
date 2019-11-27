@@ -3,6 +3,11 @@ package _003_LongestSubstringWithoutRepeatingCharacters;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 最长非重复子串
+ * @author madaimeng.com
+ * @create: 2018-02-04 12:06
+ */
 public class LongestSubstringWithoutRepeatingCharactersV2018 {
     private static class Solution {
         public int lengthOfLongestSubstring(String s) {

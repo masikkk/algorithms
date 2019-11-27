@@ -1,7 +1,9 @@
 package _005_LongestPalindromicSubstring;
 
 /**
+ * 最长回文子串
  * @author madaimeng.com
+ * @create: 2019-11-22 16:57
  */
 public class LongestPalindromicSubstringV2019 {
     private static class Solution {
