@@ -7,20 +7,22 @@ public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
+
     public TreeNode(int x) {
         val = x;
     }
 
-    //递归先序遍历二叉树
-    public static void preOrderTraverse(TreeNode root){
-        if(root == null)
+    // 递归先序遍历二叉树
+    public static void preOrderTraverse(TreeNode root) {
+        if (root == null) {
             return;
-        System.out.print(root.val+",");
+        }
+        System.out.print(root.val + ",");
         preOrderTraverse(root.left);
         preOrderTraverse(root.right);
     }
 
-    //根据层次遍历序列创建二叉树
+    // 根据层次遍历序列创建二叉树
     public static TreeNode stringToTreeNode(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
@@ -35,7 +37,7 @@ public class TreeNode {
         nodeQueue.add(root);
 
         int index = 1;
-        while(!nodeQueue.isEmpty()) {
+        while (!nodeQueue.isEmpty()) {
             TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {

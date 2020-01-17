@@ -2,6 +2,7 @@ package problems;
 
 /**
  * 最大子序列和
+ * https://leetcode-cn.com/problems/maximum-subarray/
  * @author madaimeng.com
  */
 public class _053_MaximumSubarray {
