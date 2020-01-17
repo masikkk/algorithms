@@ -1,9 +1,11 @@
+package problems;
+
 public class _035_SearchInsertPosition {
     private static class Solution {
         public int searchInsert(int[] nums, int target) {
-			if (nums.length == 0) {
-				return 0;
-			}
+            if (nums.length == 0) {
+                return 0;
+            }
             int low = 0;
             int high = nums.length - 1;
             while (low <= high) {

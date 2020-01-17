@@ -1,3 +1,5 @@
+package problems;
+
 import java.util.Arrays;
 
 public class _561_ArrayPartition1 {

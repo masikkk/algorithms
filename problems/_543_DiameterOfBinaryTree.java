@@ -1,14 +1,18 @@
+package problems;
+
+import structs.TreeNode;
+
 public class _543_DiameterOfBinaryTree {
     private static class Solution {
         public int diameterOfBinaryTree(TreeNode root) {
-			if (root == null) {
-				return 0;
-			} else {
-				int sumDepth = treeDepth(root.left) + treeDepth(root.right);//左右子树深度之和
-				int leftSumDepth = diameterOfBinaryTree(root.left);//左子树的左右子树深度之和
-				int rightSumDepth = diameterOfBinaryTree(root.right);//右子树的左右子树深度之和
-				return Math.max(sumDepth, Math.max(leftSumDepth, rightSumDepth));//取较大者
-			}
+            if (root == null) {
+                return 0;
+            } else {
+                int sumDepth = treeDepth(root.left) + treeDepth(root.right);//左右子树深度之和
+                int leftSumDepth = diameterOfBinaryTree(root.left);//左子树的左右子树深度之和
+                int rightSumDepth = diameterOfBinaryTree(root.right);//右子树的左右子树深度之和
+                return Math.max(sumDepth, Math.max(leftSumDepth, rightSumDepth));//取较大者
+            }
         }
 
         //递归计算二叉树的深度

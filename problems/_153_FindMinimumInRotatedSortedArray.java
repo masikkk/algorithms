@@ -1,3 +1,5 @@
+package problems;
+
 public class _153_FindMinimumInRotatedSortedArray {
     private static class Solution {
         public int findMin(int[] nums) {
@@ -5,9 +7,9 @@ public class _153_FindMinimumInRotatedSortedArray {
             int high = nums.length - 1;
             while (low <= high) {
                 //先判断nums[low,...,high]是否升序，即无旋转
-				if (nums[low] <= nums[high]) {
-					return nums[low];
-				}
+                if (nums[low] <= nums[high]) {
+                    return nums[low];
+                }
                 //nums[low,...,high]不是升序
                 int mid = (low + high) / 2;
                 if (nums[mid] >= nums[low]) {//左边升序，转折点在右边，最小值也在右边

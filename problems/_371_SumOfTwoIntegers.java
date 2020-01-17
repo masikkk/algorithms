@@ -1,3 +1,5 @@
+package problems;
+
 public class _371_SumOfTwoIntegers {
     private static class Solution {
         public int getSum(int a, int b) {

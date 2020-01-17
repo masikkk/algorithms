@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _021_MergeTwoSortedLists {
     private static class Solution {
         public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

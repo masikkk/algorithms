@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _203_RemoveLinkedListElements {
     private static class Solution {
         public ListNode removeElements(ListNode head, int val) {

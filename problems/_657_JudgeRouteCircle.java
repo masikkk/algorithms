@@ -1,3 +1,5 @@
+package problems;
+
 public class _657_JudgeRouteCircle {
     private static class Solution {
         public boolean judgeCircle(String moves) {

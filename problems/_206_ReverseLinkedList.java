@@ -1,7 +1,10 @@
+package problems;
+
+import structs.ListNode;
+
 /**
  * 反转链表
  * @author madaimeng.com
- * @create: 2018-02-05 12:06
  */
 public class _206_ReverseLinkedList {
     private static class SolutionV2018 {

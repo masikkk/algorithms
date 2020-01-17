@@ -1,3 +1,5 @@
+package problems;
+
 public class _389_FindTheDifference {
     private static class Solution {
         //集合ASC||码值之差

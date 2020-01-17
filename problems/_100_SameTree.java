@@ -1,3 +1,7 @@
+package problems;
+
+import structs.TreeNode;
+
 public class _100_SameTree {
     private static class Solution {
         public boolean isSameTree(TreeNode p, TreeNode q) {

@@ -1,3 +1,5 @@
+package problems;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +9,11 @@ public class _412_FizzBuzz {
             List<String> output = new ArrayList<String>();
             for (int i = 1; i <= n; i++) {
                 if (i % 3 == 0) {
-					if (i % 5 == 0) {
-						output.add("FizzBuzz");
-					} else {
-						output.add("Fizz");
-					}
+                    if (i % 5 == 0) {
+                        output.add("FizzBuzz");
+                    } else {
+                        output.add("Fizz");
+                    }
                 } else if (i % 5 == 0) {
                     output.add("Buzz");
                 } else {

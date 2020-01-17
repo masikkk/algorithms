@@ -1,3 +1,5 @@
+package problems;
+
 public class _007_ReverseInteger {
     private static class Solution {
         //使用long型

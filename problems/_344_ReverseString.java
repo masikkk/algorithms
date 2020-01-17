@@ -1,3 +1,5 @@
+package problems;
+
 public class _344_ReverseString {
     private static class Solution {
         //char swap

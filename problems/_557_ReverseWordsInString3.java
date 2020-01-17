@@ -1,3 +1,5 @@
+package problems;
+
 public class _557_ReverseWordsInString3 {
     private static class Solution {
         //手动处理版

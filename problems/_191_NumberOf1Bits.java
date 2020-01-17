@@ -1,3 +1,5 @@
+package problems;
+
 public class _191_NumberOf1Bits {
     private static class Solution {
         // you need to treat n as an unsigned value

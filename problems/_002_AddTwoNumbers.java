@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 class _002_AddTwoNumbers {
 	private static class SolutionV2018 {
 		public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

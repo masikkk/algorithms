@@ -1,3 +1,5 @@
+package problems;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +15,13 @@ public class _500_KeyboardRow {
                 int firstLetterRow = whichRow(word.charAt(0));//第一个字符所在的行号
                 int i = 1;
                 for (; i < word.length(); i++) {
-					if (whichRow(word.charAt(i)) != firstLetterRow) {
-						break;
-					}
+                    if (whichRow(word.charAt(i)) != firstLetterRow) {
+                        break;
+                    }
                 }
-				if (i == word.length()) {
-					resultList.add(word);
-				}
+                if (i == word.length()) {
+                    resultList.add(word);
+                }
             }
             return resultList.toArray(new String[0]);
         }

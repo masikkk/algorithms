@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _142_LinkedListCycle2 {
     private static class Solution {
         public ListNode detectCycle(ListNode head) {
@@ -30,10 +34,10 @@ public class _142_LinkedListCycle2 {
         third.next = fourth;
         fourth.next = second;
         Solution solution = new Solution();
-		if (solution.detectCycle(head) != null) {
-			System.out.println(solution.detectCycle(head).val);
-		} else {
-			System.out.println("null");
-		}
+        if (solution.detectCycle(head) != null) {
+            System.out.println(solution.detectCycle(head).val);
+        } else {
+            System.out.println("null");
+        }
     }
 }

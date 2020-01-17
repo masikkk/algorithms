@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _141_LinkedListCycle {
     private static class Solution {
         public boolean hasCycle(ListNode head) {
@@ -5,14 +9,14 @@ public class _141_LinkedListCycle {
             ListNode fast = head;
             while (slow != null && fast != null) {
                 slow = slow.next;
-				if (fast.next != null) {
-					fast = fast.next.next;
-				} else {
-					return false;
-				}
-				if (slow == fast) {
-					return true;
-				}
+                if (fast.next != null) {
+                    fast = fast.next.next;
+                } else {
+                    return false;
+                }
+                if (slow == fast) {
+                    return true;
+                }
             }
             return false;
         }

@@ -1,3 +1,5 @@
+package problems;
+
 public class _566_ReshapeTheMatrix {
     private static class Solution {
         public int[][] matrixReshape(int[][] nums, int r, int c) {
@@ -9,16 +11,16 @@ public class _566_ReshapeTheMatrix {
             int[][] output = new int[r][];
             output[0] = new int[c];
             int m = 0, n = 0;
-			for (int i = 0; i < origin_row; i++) {
-				for (int j = 0; j < origin_column; j++) {
-					if (n >= c) {//新矩阵换行
-						n = 0;
-						m++;
-						output[m] = new int[c];
-					}
-					output[m][n++] = nums[i][j];
-				}
-			}
+            for (int i = 0; i < origin_row; i++) {
+                for (int j = 0; j < origin_column; j++) {
+                    if (n >= c) {//新矩阵换行
+                        n = 0;
+                        m++;
+                        output[m] = new int[c];
+                    }
+                    output[m][n++] = nums[i][j];
+                }
+            }
             return output;
         }
     }

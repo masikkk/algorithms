@@ -1,3 +1,5 @@
+package problems;
+
 public class _283_MoveZeroes {
     private static class Solution {
         //仿冒泡排序法，O(n^2)
@@ -36,8 +38,8 @@ public class _283_MoveZeroes {
         Solution solution = new Solution();
         int[] nums = {0, 1, 0, 3, 12};
         solution.moveZeroes(nums);
-		for (int i : nums) {
-			System.out.print(i + ",");
-		}
+        for (int i : nums) {
+            System.out.print(i + ",");
+        }
     }
 }

@@ -1,3 +1,5 @@
+package problems;
+
 public class _004_MedianOfTwoSortedArrays {
     private static class Solution {
         //归并排序法

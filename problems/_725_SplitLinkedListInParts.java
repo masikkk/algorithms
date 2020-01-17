@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _725_SplitLinkedListInParts {
     private static class Solution {
         public ListNode[] splitListToParts(ListNode root, int k) {

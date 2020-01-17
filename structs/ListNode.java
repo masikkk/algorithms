@@ -1,10 +1,12 @@
+package structs;
+
 /**
  * Definition for singly-linked list.
  * @author madaimeng.com
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     public ListNode(int x) {
         val = x;

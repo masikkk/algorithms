@@ -1,7 +1,8 @@
+package problems;
+
 /**
  * 最长公共前缀
  * @author madaimeng.com
- * @create: 2018-02-08 12:06
  */
 public class _014_LongestCommonPrefix {
     private static class SolutionV2018 {
@@ -49,11 +50,11 @@ public class _014_LongestCommonPrefix {
         System.out.println(solution.longestCommonPrefix(strs));
 
         SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abc","abc"}));
+        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abc", "abc"}));
         System.out.println(solutionV2020.longestCommonPrefix(new String[]{"flower"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"flower","flow","flight"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"dog","racecar","car"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abcdd","a"}));
+        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
+        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abcdd", "a"}));
         System.out.println(solutionV2020.longestCommonPrefix(new String[]{""}));
         System.out.println(solutionV2020.longestCommonPrefix(new String[]{}));
     }

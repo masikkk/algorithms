@@ -1,3 +1,7 @@
+package problems;
+
+import structs.ListNode;
+
 public class _237_DeleteNodeInALinkedList {
     private static class Solution {
         public void deleteNode(ListNode node) {

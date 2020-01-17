@@ -1,9 +1,11 @@
+package problems;
+
 public class _026_RemoveDuplicatesFromSortedArray {
     private static class Solution {
         public int removeDuplicates(int[] nums) {
-			if (nums == null || nums.length == 0) {
-				return 0;
-			}
+            if (nums == null || nums.length == 0) {
+                return 0;
+            }
             int slow = 0, fast = 0;
             for (; fast < nums.length - 1; ) {
                 if (nums[fast] != nums[fast + 1]) {
@@ -21,8 +23,8 @@ public class _026_RemoveDuplicatesFromSortedArray {
         int[] input = {1, 1, 1, 2, 33, 44, 44};
         Solution solution = new Solution();
         System.out.println(solution.removeDuplicates(input));
-		for (int a : input) {
-			System.out.print(a + " ");
-		}
+        for (int a : input) {
+            System.out.print(a + " ");
+        }
     }
 }

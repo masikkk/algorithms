@@ -1,3 +1,5 @@
+package problems;
+
 public class _033_SearchInRotatedSortedArray {
     private static class Solution {
         public int search(int[] nums, int target) {
@@ -5,9 +7,9 @@ public class _033_SearchInRotatedSortedArray {
             int high = nums.length - 1;
             while (low <= high) {
                 int mid = (low + high) / 2;
-				if (nums[mid] == target) {
-					return mid;
-				}
+                if (nums[mid] == target) {
+                    return mid;
+                }
                 if (nums[mid] >= nums[low]) {//左边有序，转折点在右边
                     if (target >= nums[low] && target < nums[mid]) {//target在左边
                         high = mid - 1;
