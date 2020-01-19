@@ -13,13 +13,32 @@ public class TreeNode {
     }
 
     // 递归先序遍历二叉树
-    public static void preOrderTraverse(TreeNode root) {
+    public static void preOrderTraverseRecursive(TreeNode root) {
         if (root == null) {
             return;
         }
         System.out.print(root.val + ",");
-        preOrderTraverse(root.left);
-        preOrderTraverse(root.right);
+        preOrderTraverseRecursive(root.left);
+        preOrderTraverseRecursive(root.right);
+    }
+
+    // 层次遍历
+    public static void levelTraverse(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+        while (null != queue.peek()) {
+            TreeNode treeNode = queue.poll();
+            System.out.print(treeNode.val + ",");
+            if (null != treeNode.left) {
+                queue.offer(treeNode.left);
+            }
+            if (null != treeNode.right) {
+                queue.offer(treeNode.right);
+            }
+        }
     }
 
     // 根据层次遍历序列创建二叉树
@@ -65,5 +84,17 @@ public class TreeNode {
             }
         }
         return root;
+    }
+
+    public static void main(String[] args) {
+        String input = "[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]";
+        TreeNode root = TreeNode.stringToTreeNode(input);
+        System.out.println("Pre Order Traverse:");
+        TreeNode.preOrderTraverseRecursive(root);
+        System.out.println();
+
+        System.out.println("Level Traverse:");
+        levelTraverse(root);
+        System.out.println();
     }
 }
