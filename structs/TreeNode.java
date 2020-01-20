@@ -2,6 +2,7 @@ package structs;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class TreeNode {
     public int val;
@@ -20,6 +21,39 @@ public class TreeNode {
         System.out.print(root.val + ",");
         preOrderTraverseRecursive(root.left);
         preOrderTraverseRecursive(root.right);
+    }
+
+    // 递归中序遍历二叉树
+    public static void midOrderTraverseRecursive(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        midOrderTraverseRecursive(root.left);
+        System.out.print(root.val + ",");
+        midOrderTraverseRecursive(root.right);
+    }
+
+    // 非递归中序遍历二叉树
+    public static void midOrderTraverseIterative(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode currentNode = stack.peek();
+            while (null != currentNode) {
+                currentNode = currentNode.left;
+                stack.push(currentNode);
+            }
+            stack.pop(); // pop null
+            if (stack.isEmpty()) {
+                return;
+            }
+            currentNode = stack.pop();
+            System.out.print(currentNode.val + ",");
+            stack.push(currentNode.right);
+        }
     }
 
     // 层次遍历
@@ -88,13 +122,24 @@ public class TreeNode {
 
     public static void main(String[] args) {
         String input = "[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]";
+        System.out.println("input level string:");
+        System.out.println(input);
         TreeNode root = TreeNode.stringToTreeNode(input);
-        System.out.println("Pre Order Traverse:");
-        TreeNode.preOrderTraverseRecursive(root);
-        System.out.println();
 
         System.out.println("Level Traverse:");
         levelTraverse(root);
+        System.out.println();
+
+        System.out.println("Pre Order Traverse Recursive:");
+        TreeNode.preOrderTraverseRecursive(root);
+        System.out.println();
+
+        System.out.println("Mid Order Traverse Recursive:");
+        TreeNode.midOrderTraverseRecursive(root);
+        System.out.println();
+
+        System.out.println("Mid Order Traverse Iterative:");
+        TreeNode.midOrderTraverseIterative(root);
         System.out.println();
     }
 }
