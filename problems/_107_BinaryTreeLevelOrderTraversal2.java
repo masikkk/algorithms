@@ -46,6 +46,7 @@ public class _107_BinaryTreeLevelOrderTraversal2 {
                 arrayDeque.push(levelList);
             }
 
+            // Deque 流数据就是后进先出的，相当于 Collections.reverse()
             return arrayDeque.stream().collect(Collectors.toList());
         }
     }

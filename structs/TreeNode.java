@@ -1,6 +1,8 @@
 package structs;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -61,7 +63,7 @@ public class TreeNode {
         if (null == root) {
             return;
         }
-        Queue<TreeNode> queue = new LinkedList();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (null != queue.peek()) {
             TreeNode treeNode = queue.poll();
@@ -73,6 +75,68 @@ public class TreeNode {
                 queue.offer(treeNode.right);
             }
         }
+    }
+
+    // 二叉树可视化
+    public static void visualize(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        List<List<StringBuilder>> levelsList = new ArrayList<>();
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            // 每层的结点个数
+            int size = queue.size();
+            // 是否最后一层
+            boolean lastLevel = true;
+            List<StringBuilder> level = new ArrayList<>();
+
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                // 除最左侧结点外，前面加空格
+                if (i > 0) {
+                    level.add(new StringBuilder("  "));
+                }
+                if (null != treeNode) {
+                    // 队列中全是null说明是最后一层
+                    lastLevel = false;
+                    level.add(new StringBuilder(String.format("%02d", treeNode.val)));
+                    queue.offer(treeNode.left);
+                    queue.offer(treeNode.right);
+                } else {
+                    level.add(new StringBuilder("##"));
+                    // 队列中放入null表示空结点
+                    queue.offer(null);
+                    queue.offer(null);
+                }
+            }
+            // 遍历完当前层
+            if (lastLevel) {
+                break;
+            }
+
+            // 前面所有层的每个元素前依次插入空格
+            int height = levelsList.size();
+            for (int i = 1; i <= height; i++) {
+                List<StringBuilder> sbList = levelsList.get(i-1);
+                for (StringBuilder sb : sbList) {
+                    // 第i层每个元素前插入 height-i 个空格
+                    for (int j = 0; j < Math.pow(2, height - i); j++) {
+                        sb.insert(0, "  ");
+                    }
+                }
+            }
+            levelsList.add(level);
+        }
+
+        // 打印
+        levelsList.forEach(le -> {
+            le.forEach(System.out::print);
+            System.out.println();
+        });
+        System.out.println();
     }
 
     // 根据层次遍历序列创建二叉树
@@ -122,24 +186,32 @@ public class TreeNode {
 
     public static void main(String[] args) {
         String input = "[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]";
-        System.out.println("input level string:");
+        System.out.println("LeetCode二叉树层次遍历数组：");
         System.out.println(input);
         TreeNode root = TreeNode.stringToTreeNode(input);
 
-        System.out.println("Level Traverse:");
+        System.out.println("层次遍历：");
         levelTraverse(root);
         System.out.println();
 
-        System.out.println("Pre Order Traverse Recursive:");
+        System.out.println("递归先序遍历：");
         TreeNode.preOrderTraverseRecursive(root);
         System.out.println();
 
-        System.out.println("Mid Order Traverse Recursive:");
+        System.out.println("递归中序遍历：");
         TreeNode.midOrderTraverseRecursive(root);
         System.out.println();
 
-        System.out.println("Mid Order Traverse Iterative:");
+        System.out.println("非递归中序遍历：");
         TreeNode.midOrderTraverseIterative(root);
         System.out.println();
+
+        System.out.println("可视化：");
+        visualize(TreeNode.stringToTreeNode("[3,9,20]"));
+        visualize(TreeNode.stringToTreeNode("[3,9,20,1]"));
+        visualize(TreeNode.stringToTreeNode("[3,9,20,null,null,15,7]"));
+        visualize(TreeNode.stringToTreeNode("[3,9,20,null,null,15,7,null,null,null,8]"));
+        visualize(TreeNode.stringToTreeNode("[3,9,20,null,null,15,7,null,null,null,8,1]"));
+        visualize(root);
     }
 }
