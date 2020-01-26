@@ -1,6 +1,7 @@
 package structs;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -23,6 +24,30 @@ public class TreeNode {
         System.out.print(root.val + ",");
         preOrderTraverseRecursive(root.left);
         preOrderTraverseRecursive(root.right);
+    }
+
+    // 非递归现需遍历二叉树
+    public static void preOrderTraverseIterative(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        stack.push(cur);
+        while (!stack.isEmpty() || null != cur) {
+            while (null != cur) {
+                System.out.print(cur.val + ",");
+                cur = cur.left;
+                if (null != cur) {
+                    stack.push(cur);
+                }
+            }
+            cur = stack.pop();
+            if (null != cur.right) {
+                stack.push(cur.right);
+            }
+            cur = cur.right;
+        }
     }
 
     // 递归中序遍历二叉树
@@ -196,6 +221,10 @@ public class TreeNode {
 
         System.out.println("递归先序遍历：");
         TreeNode.preOrderTraverseRecursive(root);
+        System.out.println();
+
+        System.out.println("非递归先序遍历：");
+        TreeNode.preOrderTraverseIterative(root);
         System.out.println();
 
         System.out.println("递归中序遍历：");

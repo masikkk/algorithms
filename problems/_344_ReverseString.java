@@ -1,7 +1,10 @@
 package problems;
 
+/**
+ * 反转字符串
+ */
 public class _344_ReverseString {
-    private static class Solution {
+    private static class SolutionV2018 {
         //char swap
         public String reverseString(String s) {
             char[] charStr = s.toCharArray();
@@ -27,7 +30,7 @@ public class _344_ReverseString {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionV2018 solution = new SolutionV2018();
         System.out.println(solution.reverseString("Masikkk"));
     }
 }
