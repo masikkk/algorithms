@@ -27,6 +27,7 @@ public class _112_PathSum {
     public static void main(String[] args) {
         String input = "[5,4,8,11,null,13,4,7,2,null,null,null,1]";
         String input2 = "[1,2]";
+        // 易错用例
         String input3 = "[]";
         SolutionV2020 solutionV2020 = new SolutionV2020();
         System.out.println(solutionV2020.hasPathSum(TreeNode.stringToTreeNode(input), 22));
