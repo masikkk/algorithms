@@ -10,7 +10,7 @@ import structs.TreeNode;
  * @author masikkk.com
  * @create 2020-01-26 16:41
  */
-public class _235_LowestCommonAncestor {
+public class _235_LowestCommonAncestorOfBST {
     private static class SolutionV2020 {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (null == root) {
