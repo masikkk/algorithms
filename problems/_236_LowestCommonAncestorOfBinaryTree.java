@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import structs.TreeNode;
 
 /**
- * BST树的最低公共祖先
- * https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+ * 二叉树的最低公共祖先
+ * https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
  * @author masikkk.com
- * @create 2020-01-26 16:41
+ * @create 2020-01-27 15:23
  */
-public class _235_LowestCommonAncestorOfBST {
+public class _236_LowestCommonAncestorOfBinaryTree {
     private static class SolutionV2020 {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (null == root) {
@@ -26,7 +26,6 @@ public class _235_LowestCommonAncestorOfBST {
         }
 
         // 非递归先序遍历，判断root中是否包含p和q
-        // 由于题目规定是BST树，其实可通过直接比较pq和root的结点值来判断
         public boolean containNodes(TreeNode root, TreeNode p, TreeNode q) {
             if (null == root) {
                 return false;
