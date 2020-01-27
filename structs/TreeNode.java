@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * 二叉树结点
+ */
 public class TreeNode {
     public int val;
     public TreeNode left;
@@ -81,6 +84,24 @@ public class TreeNode {
             System.out.print(currentNode.val + ",");
             stack.push(currentNode.right);
         }
+    }
+
+    // 递归后序遍历
+    public static void postOrderTraverseRecursive(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+        postOrderTraverseRecursive(root.left);
+        postOrderTraverseRecursive(root.right);
+        System.out.print(root.val + ",");
+    }
+
+    // 非递归后序遍历
+    public static void postOrderTraverseIterative(TreeNode root) {
+        if (null == root) {
+            return;
+        }
+
     }
 
     // 层次遍历
@@ -233,6 +254,10 @@ public class TreeNode {
 
         System.out.println("非递归中序遍历：");
         TreeNode.midOrderTraverseIterative(root);
+        System.out.println();
+
+        System.out.println("递归后序遍历：");
+        TreeNode.postOrderTraverseRecursive(root);
         System.out.println();
 
         System.out.println("可视化：");
