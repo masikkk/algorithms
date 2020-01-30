@@ -3,7 +3,8 @@ package problems;
 import structs.TreeNode;
 
 /**
- * 二叉树的子树 https://leetcode-cn.com/problems/subtree-of-another-tree/
+ * 判断是否二叉树的子树
+ * https://leetcode-cn.com/problems/subtree-of-another-tree/
  * @author masikkk.com
  */
 public class _572_SubtreeOfAnotherTree {
