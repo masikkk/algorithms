@@ -5,7 +5,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * 二叉树结点
@@ -68,21 +67,19 @@ public class TreeNode {
         if (null == root) {
             return;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode currentNode = stack.peek();
-            while (null != currentNode) {
-                currentNode = currentNode.left;
-                stack.push(currentNode);
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root; // 当前结点
+        while (!stack.isEmpty() || null != cur) {
+            // 向左走到尽头
+            while (null != cur) {
+                stack.push(cur);
+                cur = cur.left;
             }
-            stack.pop(); // pop null
-            if (stack.isEmpty()) {
-                return;
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
+                System.out.print(cur.val + ",");
+                cur = cur.right;
             }
-            currentNode = stack.pop();
-            System.out.print(currentNode.val + ",");
-            stack.push(currentNode.right);
         }
     }
 
