@@ -19,6 +19,7 @@ public class _532_KDiffPairsInArray {
             // value -> 是否使用过
             Map<Integer, Boolean> map = new HashMap<>();
             for (int i = 0; i < nums.length; i++) {
+                // 分为k=0和k!=0两种情况
                 if (0 != k) {
                     // 不重复处理元素
                     if (!map.containsKey(nums[i])) {
