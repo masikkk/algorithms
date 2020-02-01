@@ -26,10 +26,12 @@ public class _671_SecondMinimumNodeInBinaryTree {
             if (null == root) {
                 return;
             }
+            // 更新最小值
             if (null == min || root.val < min) {
                 min2 = min;
                 min = root.val;
             } else if (root.val > min && (min2 == null || root.val < min2)) {
+                // 更新次小值
                 min2 = root.val;
             }
             preOrderTraverse(root.left);
