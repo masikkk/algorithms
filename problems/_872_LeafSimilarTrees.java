@@ -3,7 +3,7 @@ package problems;
 import structs.TreeNode;
 
 /**
- * 叶子序列相似的二叉树
+ * 叶子序列相同的二叉树
  * https://leetcode-cn.com/problems/leaf-similar-trees/
  * @author masikkk.com
  * @create 2020-02-02 14:58
