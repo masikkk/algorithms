@@ -3,7 +3,7 @@ package problems;
 import structs.TreeNode;
 
 /**
- * 非负BST的最小差
+ * BST的最小差值
  * https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
  * @author masikkk.com
  * @create 2020-02-02 14:02
