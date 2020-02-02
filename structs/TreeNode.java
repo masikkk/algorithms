@@ -53,17 +53,17 @@ public class TreeNode {
     }
 
     // 递归中序遍历二叉树
-    public static void midOrderTraverseRecursive(TreeNode root) {
+    public static void inOrderTraverseRecursive(TreeNode root) {
         if (null == root) {
             return;
         }
-        midOrderTraverseRecursive(root.left);
+        inOrderTraverseRecursive(root.left);
         System.out.print(root.val + ",");
-        midOrderTraverseRecursive(root.right);
+        inOrderTraverseRecursive(root.right);
     }
 
     // 非递归中序遍历二叉树
-    public static void midOrderTraverseIterative(TreeNode root) {
+    public static void inOrderTraverseIterative(TreeNode root) {
         if (null == root) {
             return;
         }
@@ -246,11 +246,11 @@ public class TreeNode {
         System.out.println();
 
         System.out.println("递归中序遍历：");
-        TreeNode.midOrderTraverseRecursive(root);
+        TreeNode.inOrderTraverseRecursive(root);
         System.out.println();
 
         System.out.println("非递归中序遍历：");
-        TreeNode.midOrderTraverseIterative(root);
+        TreeNode.inOrderTraverseIterative(root);
         System.out.println();
 
         System.out.println("递归后序遍历：");

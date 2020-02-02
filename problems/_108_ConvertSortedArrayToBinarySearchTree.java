@@ -37,6 +37,6 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
        SolutionV2020 solutionV2020 = new SolutionV2020();
        TreeNode root = solutionV2020.sortedArrayToBST(nums);
        TreeNode.visualize(root);
-       TreeNode.midOrderTraverseRecursive(root);
+       TreeNode.inOrderTraverseRecursive(root);
     }
 }
