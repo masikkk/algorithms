@@ -6,12 +6,12 @@ import structs.TreeNode;
  * 二叉树中的堂兄弟
  * https://leetcode-cn.com/problems/cousins-in-binary-tree/
  * @author masikkk.com
- * @create 2020-02-03 10:35
  */
 public class _993_CousinsInBinaryTree {
     private static class SolutionV2020 {
         private Integer xLevel, yLevel;
         private Integer xParent, yParent;
+
         public boolean isCousins(TreeNode root, int x, int y) {
             if (null == root) {
                 return false;

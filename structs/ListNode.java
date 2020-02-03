@@ -1,6 +1,7 @@
 package structs;
 
 /**
+ * 单链表
  * Definition for singly-linked list.
  * @author madaimeng.com
  */
