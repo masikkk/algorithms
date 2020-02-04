@@ -61,7 +61,7 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
         }
     }
 
-    private static class SolutionV2019 {
+    private static class SolutionV2020 {
         public int lengthOfLongestSubstring(String s) {
             if (null == s || 0 == s.length()) {
                 return 0;
@@ -84,11 +84,11 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
         }
 
         public static void main(String[] args) {
-            SolutionV2019 solution = new SolutionV2019();
-            System.out.println(solution.lengthOfLongestSubstring("abcabcbb"));
-            System.out.println(solution.lengthOfLongestSubstring("bbbbb"));
-            System.out.println(solution.lengthOfLongestSubstring("pwwkew"));
-            System.out.println(solution.lengthOfLongestSubstring("2"));
+            SolutionV2020 solutionV2020 = new SolutionV2020();
+            System.out.println(solutionV2020.lengthOfLongestSubstring("abcabcbb"));
+            System.out.println(solutionV2020.lengthOfLongestSubstring("bbbbb"));
+            System.out.println(solutionV2020.lengthOfLongestSubstring("pwwkew"));
+            System.out.println(solutionV2020.lengthOfLongestSubstring("2"));
         }
     }
 }

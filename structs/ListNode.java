@@ -13,6 +13,10 @@ public class ListNode {
         val = x;
     }
 
+    public int getVal() {
+        return val;
+    }
+
     // 字符串"[a1,a2,a3,a4]"转为int数组
     public static int[] stringToIntegerArray(String input) {
         input = input.trim();
