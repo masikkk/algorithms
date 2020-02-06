@@ -1,5 +1,11 @@
 package problems;
 
+import structs.ListNode;
+
+/**
+ * 买卖股票的最佳时机
+ * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+ */
 class _121_BestTimeToBuyAndSellStock {
     private static class SolutionV2018 {
         public int maxProfit(int[] prices) {
@@ -27,9 +33,29 @@ class _121_BestTimeToBuyAndSellStock {
         }
     }
 
+    private static class SolutionV2020 {
+        public int maxProfit(int[] prices) {
+            if (null == prices || prices.length == 0) {
+                return 0;
+            }
+            int min = prices[0];
+            // 当前值与最小值差值的最大值
+            int maxDiff = 0;
+
+            for (int n : prices) {
+                min = Math.min(min, n);
+                maxDiff = Math.max(maxDiff, n - min);
+            }
+            return maxDiff;
+        }
+    }
+
     public static void main(String[] args) {
-        SolutionV2018 solution = new SolutionV2018();
-        int[] prices = {2, 7, 1, 3};
-        System.out.println(solution.maxProfit(prices));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.maxProfit(ListNode.stringToIntegerArray("[7,1,5,3,6,4]")));
+
+        SolutionV2020 solutionV2020 = new SolutionV2020();
+        System.out.println(solutionV2020.maxProfit(ListNode.stringToIntegerArray("[7,1,5,3,6,4]")));
+        System.out.println(solutionV2020.maxProfit(ListNode.stringToIntegerArray("[7,6,4,3,1]")));
     }
 }
