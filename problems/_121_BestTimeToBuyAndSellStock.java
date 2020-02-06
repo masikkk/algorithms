@@ -57,5 +57,6 @@ class _121_BestTimeToBuyAndSellStock {
         SolutionV2020 solutionV2020 = new SolutionV2020();
         System.out.println(solutionV2020.maxProfit(ListNode.stringToIntegerArray("[7,1,5,3,6,4]")));
         System.out.println(solutionV2020.maxProfit(ListNode.stringToIntegerArray("[7,6,4,3,1]")));
+        System.out.println(solutionV2020.maxProfit(ListNode.stringToIntegerArray("[10,2,9,1,2,1,3,1]")));
     }
 }
