@@ -4,7 +4,7 @@ import java.util.Arrays;
 import structs.ListNode;
 
 /**
- * 找出集合中重复的值和缺失的值
+ * 找出数组中重复的值和缺失的值
  * https://leetcode-cn.com/problems/set-mismatch/
  * @author masikkk.com
  * @create 2020-02-13 22:22
