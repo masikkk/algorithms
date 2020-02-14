@@ -25,7 +25,7 @@ public class _041_FirstMissingPositive {
                     nums[Math.abs(nums[i]) - 1] = -Math.abs(nums[Math.abs(nums[i]) - 1]);
                 }
             }
-            // 找第一个不存在的下标，就是缺失的最小正数
+            // 找第一个不存在(值为正)的下标，就是缺失的最小正数，找不到则结果就是n+1
             int i = 0;
             for (; i < nums.length; i++) {
                 if (nums[i] > 0) {
