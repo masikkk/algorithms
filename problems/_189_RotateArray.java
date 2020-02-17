@@ -4,6 +4,8 @@ import java.util.Arrays;
 import structs.ListNode;
 
 /**
+ * 旋转数组
+ * https://leetcode-cn.com/problems/rotate-array/
  * @author masikkk.com
  * @create 2020-02-17 22:07
  */
