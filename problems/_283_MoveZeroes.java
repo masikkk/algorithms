@@ -1,7 +1,13 @@
 package problems;
 
+import java.util.Arrays;
+
+/**
+ * 将数组中的零移到末尾
+ * https://leetcode-cn.com/problems/move-zeroes/
+ */
 public class _283_MoveZeroes {
-    private static class Solution {
+    private static class SolutionV2018 {
         //仿冒泡排序法，O(n^2)
         public void moveZeroes(int[] nums) {
             boolean swaped = true;//上次循环是否有过交换
@@ -31,15 +37,41 @@ public class _283_MoveZeroes {
                 }
             }
         }
+    }
 
+    private static  class SolutionV2020 {
+        public void moveZeroes(int[] nums) {
+            if (null == nums || nums.length < 2) {
+                return;
+            }
+            // left左边是要保留的非零元素
+            int left = 0;
+            for (int right = 0; right < nums.length; right++) {
+                if (nums[right] != 0) {
+                    if (right != left) {
+                        nums[left] = nums[right];
+                    }
+                    left++;
+                }
+            }
+            // left右边的元素置为0
+            while (left < nums.length) {
+                nums[left++] = 0;
+            }
+        }
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println("SolutionV2018:");
         int[] nums = {0, 1, 0, 3, 12};
-        solution.moveZeroes(nums);
-        for (int i : nums) {
-            System.out.print(i + ",");
-        }
+        solutionV2018.moveZeroes(nums);
+        System.out.println(Arrays.toString(nums));
+
+        SolutionV2020 solutionV2020 = new SolutionV2020();
+        System.out.println("SolutionV2020:");
+        int[] nums2 = {0,0,1, 0};
+        solutionV2020.moveZeroes(nums2);
+        System.out.println(Arrays.toString(nums2));
     }
 }
