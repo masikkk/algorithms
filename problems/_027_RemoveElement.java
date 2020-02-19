@@ -4,8 +4,7 @@ import java.util.Arrays;
 import structs.ListNode;
 
 /**
- * 从数组中移除元素
- * https://leetcode-cn.com/problems/remove-element/
+ * 从数组中移除元素 https://leetcode-cn.com/problems/remove-element/
  */
 public class _027_RemoveElement {
     private static class SolutionV2018 {
@@ -39,7 +38,7 @@ public class _027_RemoveElement {
                     high--;
                 }
                 while (nums[low] != val && low < high) {
-                    low ++;
+                    low++;
                 }
                 if (low < high) {
                     nums[low] = nums[high--];
