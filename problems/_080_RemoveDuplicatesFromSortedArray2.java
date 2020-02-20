@@ -3,6 +3,8 @@ package problems;
 import java.util.Arrays;
 
 /**
+ * 删除有序数组中的重复项2
+ * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/
  * @author masikkk.com
  * @create 2020-02-19 13:44
  */
