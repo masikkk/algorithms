@@ -6,7 +6,7 @@ package problems;
  * @create: 2019-11-22 16:57
  */
 public class _005_LongestPalindromicSubstring {
-    private static class Solution {
+    private static class SolutionV2020 {
         public String longestPalindrome(String s) {
             String result = "";
             for (int i = 0; i < s.length(); i++) {
@@ -30,12 +30,12 @@ public class _005_LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.longestPalindrome("babad"));
-        System.out.println(solution.longestPalindrome("cbbd"));
-        System.out.println(solution.longestPalindrome("cabcba"));
-        System.out.println(solution.longestPalindrome("bb"));
-        System.out.println(solution.longestPalindrome("a"));
-        System.out.println(solution.longestPalindrome(""));
+        SolutionV2020 solutionV2020 = new SolutionV2020();
+        System.out.println(solutionV2020.longestPalindrome("babad"));
+        System.out.println(solutionV2020.longestPalindrome("cbbd"));
+        System.out.println(solutionV2020.longestPalindrome("cabcba"));
+        System.out.println(solutionV2020.longestPalindrome("bb"));
+        System.out.println(solutionV2020.longestPalindrome("a"));
+        System.out.println(solutionV2020.longestPalindrome(""));
     }
 }
