@@ -1,7 +1,11 @@
 package problems;
 
+/**
+ * 判断整数是否回文数
+ * https://leetcode-cn.com/problems/palindrome-number/
+ */
 public class _009_PalindromeNumber {
-    private static class Solution {
+    private static class SolutionV2018 {
         //Integer.MAX_VALUE范围内最大的回文数是2147447412，其逆置不会溢出
         //如果x的逆置溢出，reverse会变成负的，肯定和x不相等，所以即使不考虑溢出此方法也能AC
         public boolean isPalindrome1(int x) {
@@ -41,7 +45,7 @@ public class _009_PalindromeNumber {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.isPalindrome(1221000));//-2147483648,2147447412,2147483647
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.isPalindrome(1221000));//-2147483648,2147447412,2147483647
     }
 }
