@@ -3,7 +3,7 @@ package problems;
 import structs.ListNode;
 
 /**
- * 回文单链表
+ * 判断是否回文单链表
  * https://leetcode-cn.com/problems/palindrome-linked-list/
  * @author masikkk.com
  * @create 2020-02-21 15:15
