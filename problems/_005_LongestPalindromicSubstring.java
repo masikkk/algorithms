@@ -10,9 +10,11 @@ public class _005_LongestPalindromicSubstring {
         public String longestPalindrome(String s) {
             String result = "";
             for (int i = 0; i < s.length(); i++) {
+                // 以i为中心扩展
                 String extend1 = extend(s, i, i);
                 result = extend1.length() > result.length() ? extend1 : result;
                 if (i + 1 < s.length()) {
+                    // 以 i,i+1 为中心扩展，应对长度为偶数的情况
                     String extend2 = extend(s, i, i + 1);
                     result = extend2.length() > result.length() ? extend2 : result;
                 }
@@ -20,6 +22,7 @@ public class _005_LongestPalindromicSubstring {
             return result;
         }
 
+        // 从 pivot1, pivot2 开始分别往左右扩展，返回最长的回文子串
         public String extend(String s, int pivot1, int pivot2) {
             while (pivot1 >= 0 && pivot2 < s.length() && s.charAt(pivot1) == s.charAt(pivot2)) {
                 pivot1--;
