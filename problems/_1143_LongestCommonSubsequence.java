@@ -1,6 +1,6 @@
 package problems;
 /**
- * 最长公共子序列
+ * 最长公共子序列Longest Common Subsequence,LCS
  * https://leetcode-cn.com/problems/longest-common-subsequence/
  * @author masikkk.com
  * @create 2020-02-22 19:03
