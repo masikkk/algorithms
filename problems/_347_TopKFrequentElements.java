@@ -28,6 +28,7 @@ public class _347_TopKFrequentElements {
             }
 
             // 最小堆，Pair<出现次数, 数值>
+//            PriorityQueue<Pair<Integer, Integer>> priorityQueue = new PriorityQueue<>(k, (p1, p2) -> p1.getKey() - p2.getKey());
             PriorityQueue<Pair<Integer, Integer>> priorityQueue = new PriorityQueue<>(k, Comparator.comparingInt(Pair::getKey));
             map.forEach((key, value) -> {
                 if (priorityQueue.size() < k) {
