@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import javafx.util.Pair;
 
 /**
- * 孤岛的个数
+ * 岛屿个数
  * https://leetcode-cn.com/problems/number-of-islands/
  * @author masikkk.com
  * @create 2020-02-26 15:14
