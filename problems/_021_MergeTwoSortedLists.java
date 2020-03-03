@@ -2,8 +2,12 @@ package problems;
 
 import structs.ListNode;
 
+/**
+ * 合并两个有序链表
+ * https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ */
 public class _021_MergeTwoSortedLists {
-    private static class Solution {
+    private static class SolutionV2018 {
         public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
             if (l1 == null || l2 == null) {
                 return l1 == null ? l2 : l1;
@@ -38,8 +42,8 @@ public class _021_MergeTwoSortedLists {
         ListNode l2List = ListNode.stringToListNode(l2);
         System.out.println(ListNode.listNodeToString(l1List));
         System.out.println(ListNode.listNodeToString(l2List));
-        Solution solution = new Solution();
-        ListNode mergeList = solution.mergeTwoLists(l1List, l2List);
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        ListNode mergeList = solutionV2018.mergeTwoLists(l1List, l2List);
         System.out.println(ListNode.listNodeToString(mergeList));
     }
 }
