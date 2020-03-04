@@ -1,10 +1,10 @@
 package problems;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import structs.ArrayUtils;
 
 /**
+ * 腐烂的橘子
+ * https://leetcode-cn.com/problems/rotting-oranges/
  * @author masikkk.com
  * @create 2020-03-04 10:34
  */
@@ -13,15 +13,22 @@ public class _994_RottingOranges {
         public int orangesRotting(int[][] grid) {
             int nr = grid.length, nc = grid[0].length;
 
-            // 连续腐烂区域的最大层次
-            int maxLevels = 0;
-            for (int i = 0; i < nr; i++) {
-                for (int j = 0; j < nc; j++) {
-                    if (grid[i][j] == 2) {
-                        int level = bfs(grid, i, j) - 1;
-                        maxLevels = Math.max(maxLevels, level);
+            // 腐烂的步数
+            int step = 0;
+            // 上一步（上一分钟）是否有新腐蚀的结点，没有新腐蚀的结点则结束
+            boolean newRot = true;
+            while (newRot) {
+                newRot = false;
+                int lastRotValue = 2 + step;
+                for (int i = 0; i < nr; i++) {
+                    for (int j = 0; j < nc; j++) {
+                        // 从上次腐烂结点（值为lastRotValue）开始向周围腐烂1步，标为 lastRotValue + 1
+                        if (grid[i][j] == lastRotValue) {
+                            newRot = rot1Step(grid, i, j, lastRotValue + 1) || newRot;
+                        }
                     }
                 }
+                step ++;
             }
 
             // 若还有未腐烂的结点，返回-1
@@ -32,41 +39,31 @@ public class _994_RottingOranges {
                     }
                 }
             }
-            return maxLevels;
+            return step - 1;
         }
 
-        // 从 row,column 开始 BFS深度优先遍历grid中值为2的结点，并腐蚀值为1的点，返回bfs的层次
-        private int bfs(int[][] grid, int row, int column) {
+        // 从 row,column 开始向上下左右腐烂1步，标为 newValue, 如果有新腐烂的结点返回true
+        private boolean rot1Step(int[][] grid, int row, int column, int newValue) {
             int nr = grid.length, nc = grid[0].length;
-            int levels = 0;
-            Queue<Integer> queue = new LinkedList<>();
-            queue.offer(row * nc + column);
-            while (!queue.isEmpty()) {
-                levels++;
-                int levelCount = queue.size();
-                for (int i = 0; i < levelCount; i++) {
-                    int seq = queue.poll();
-                    row = seq / nc;
-                    column = seq % nc;
-                    // 访问结点，使其腐烂
-                    grid[row][column] = 3;
-
-                    // 结点上下左右的新鲜结点入队
-                    if (row - 1 >= 0 && grid[row - 1][column] == 1) { // 上
-                        queue.offer((row-1) * nc + column);
-                    }
-                    if (column + 1 < nc && grid[row][column + 1] == 1) { // 右
-                        queue.offer((row) * nc + column + 1);
-                    }
-                    if (row + 1 < nr && grid[row + 1][column] == 1) { // 下
-                        queue.offer((row+1) * nc + column);
-                    }
-                    if (column - 1 >= 0 && grid[row][column - 1] == 1) { // 左
-                        queue.offer((row) * nc + column - 1);
-                    }
-                }
+            boolean ret = false;
+            // 结点上下左右的新鲜结点入队
+            if (row - 1 >= 0 && grid[row - 1][column] == 1) { // 上
+                grid[row - 1][column] = newValue;
+                ret = true;
             }
-            return levels;
+            if (column + 1 < nc && grid[row][column + 1] == 1) { // 右
+                grid[row][column + 1] = newValue;
+                ret = true;
+            }
+            if (row + 1 < nr && grid[row + 1][column] == 1) { // 下
+                grid[row + 1][column] = newValue;
+                ret = true;
+            }
+            if (column - 1 >= 0 && grid[row][column - 1] == 1) { // 左
+                grid[row][column - 1] = newValue;
+                ret = true;
+            }
+            return ret;
         }
     }
 
