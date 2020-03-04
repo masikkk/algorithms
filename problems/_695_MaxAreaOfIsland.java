@@ -52,7 +52,7 @@ public class _695_MaxAreaOfIsland {
 
     public static void main(String[] args) {
         SolutionV2020 solutionV2020 = new SolutionV2020();
-        int[][] grid = ArrayUtils.stringToIntegerArray(
+        int[][] grid = ArrayUtils.stringToInteger2DArray(
                 "[[0,0,1,0,0,0,0,1,0,0,0,0,0],"
                 + " [0,0,0,0,0,0,0,1,1,1,0,0,0],"
                 + " [0,1,1,0,1,0,0,0,0,0,0,0,0],"
@@ -63,13 +63,13 @@ public class _695_MaxAreaOfIsland {
                 + " [0,0,0,0,0,0,0,1,1,0,0,0,0]]");
         System.out.println(solutionV2020.maxAreaOfIsland(grid));
 
-        int[][] grid2 = ArrayUtils.stringToIntegerArray(
+        int[][] grid2 = ArrayUtils.stringToInteger2DArray(
                 "[[0,1,1],"
                     + " [0,1,0],"
                     + " [0,0,0,]]");
         System.out.println(solutionV2020.maxAreaOfIsland(grid2));
 
-        int[][] grid3 = ArrayUtils.stringToIntegerArray("[[0,0,0,0,0,0,0,0]]");
+        int[][] grid3 = ArrayUtils.stringToInteger2DArray("[[0,0,0,0,0,0,0,0]]");
         System.out.println(solutionV2020.maxAreaOfIsland(grid3));
     }
 }

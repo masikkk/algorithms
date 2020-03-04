@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class ArrayUtils {
     // 字符串转二维数组
-    public static int[][] stringToIntegerArray(String input) {
+    public static int[][] stringToInteger2DArray(String input) {
         input = input.trim().substring(1, input.length() - 1);
         String[] rows = input.split("],");
         int[][] res = new int[rows.length][];
@@ -31,7 +31,7 @@ public class ArrayUtils {
     }
 
     public static void main(String[] args) {
-        int[][] grid = ArrayUtils.stringToIntegerArray("[[0,0,1,0,0,0,0,1,0,0,0,0,0],"
+        int[][] grid = ArrayUtils.stringToInteger2DArray("[[0,0,1,0,0,0,0,1,0,0,0,0,0],"
                 + " [0,0,0,0,0,0,0,1,1,1,0,0,0],"
                 + " [0,1,1,0,1,0,0,0,0,0,0,0,0],"
                 + " [0,1,0,0,1,1,0,0,1,0,1,0,0],"
@@ -43,8 +43,13 @@ public class ArrayUtils {
             System.out.println(Arrays.toString(row));
         }
 
-        int[][] grid2 = ArrayUtils.stringToIntegerArray("[[0,0,0,0,0,0,0,0]]");
+        int[][] grid2 = ArrayUtils.stringToInteger2DArray("[[0,0,0,0,0,0,0,0]]");
         for (int[] row : grid2) {
+            System.out.println(Arrays.toString(row));
+        }
+
+        int[][] grid3 = ArrayUtils.stringToInteger2DArray("[[0,2]]");
+        for (int[] row : grid3) {
             System.out.println(Arrays.toString(row));
         }
     }
