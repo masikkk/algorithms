@@ -40,7 +40,7 @@ public class Offer059_MaxQueue {
                 return -1;
             }
             int ret = dataQueue.poll();
-            // 出队元素只可能小于等于 maxQueue 队首，等于队首时 maxQueue 也天厨
+            // 出队元素只可能小于等于 maxQueue 队首，等于maxQueue队首时 maxQueue 也弹出
             if (maxQueue.peek().equals(ret)) {
                 maxQueue.poll();
             }
