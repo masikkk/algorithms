@@ -47,6 +47,25 @@ public class _543_DiameterOfBinaryTree {
         }
     }
 
+    private static class SolutionV2021 {
+        private int diameter = 0;
+        public int diameterOfBinaryTree(TreeNode root) {
+            dfs(root);
+            return diameter;
+        }
+
+        // 深度优先遍历 tree，返回树的深度，过程中更新 最大直径（也就是左右子树深度之和）
+        private int dfs(TreeNode treeNode) {
+            if (null == treeNode) {
+                return 0;
+            }
+            int leftDepth = dfs(treeNode.left);
+            int rightDepth = dfs(treeNode.right);
+            diameter = Math.max(diameter, leftDepth + rightDepth);
+            return Math.max(leftDepth, rightDepth) + 1;
+        }
+    }
+
     public static void main(String[] args) {
         String input = "[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]";
 
@@ -55,5 +74,8 @@ public class _543_DiameterOfBinaryTree {
 
         SolutionV2020 solutionV2020 = new SolutionV2020();
         System.out.println(solutionV2020.diameterOfBinaryTree(TreeNode.stringToTreeNode(input)));
+
+        SolutionV2021 solutionV2021 = new SolutionV2021();
+        System.out.println(solutionV2021.diameterOfBinaryTree(TreeNode.stringToTreeNode(input)));
     }
 }
