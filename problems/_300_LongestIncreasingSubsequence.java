@@ -17,23 +17,23 @@ public class _300_LongestIncreasingSubsequence {
             if (nums.length < 2) {
                 return nums.length;
             }
-            // lessCount[i] 表示 nums[i] 之前比 nums[i] 小的数的个数
-            int[] lessCount = new int[nums.length];
-            // lessCount 的最大值
+            // lis[i] 表示 0, ... i-1 中 最长上升子序列的长度
+            int[] lis = new int[nums.length];
+            // lis 的最大值
             int max = 0;
-            // 找 nums[i] 之前比 nums[i] 小的数中的 lessCount 最大值
+            // 找 nums[i] 之前比 nums[i] 小的数中的 lis 最大值
             for (int i = 1; i < nums.length; i++) {
                 boolean update = false;
                 int preLessMax = 0;
                 for (int j = i - 1; j >= 0; j--) {
                     if (nums[j] < nums[i]) {
                         update = true;
-                        preLessMax = Math.max(preLessMax, lessCount[j]);
+                        preLessMax = Math.max(preLessMax, lis[j]);
                     }
                 }
                 if (update) {
-                    lessCount[i] = preLessMax + 1;
-                    max = Math.max(max, lessCount[i]);
+                    lis[i] = preLessMax + 1;
+                    max = Math.max(max, lis[i]);
                 }
             }
             return max + 1;
