@@ -1,7 +1,7 @@
 package problems;
 
 public class _557_ReverseWordsInString3 {
-    private static class Solution {
+    private static class SolutionV2018 {
         //手动处理版
         public String reverseWords1(String s) {
             char[] str = s.toCharArray();
@@ -49,11 +49,11 @@ public class _557_ReverseWordsInString3 {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionV2018 solutionV2018 = new SolutionV2018();
         char[] str = {'m', 'a', 'd', 'a', 'i'};
-        System.out.println(solution.reverse(str, 0, str.length - 1));
+        System.out.println(solutionV2018.reverse(str, 0, str.length - 1));
 
-        System.out.println(solution.reverseWords("  123     1"));//I love u
+        System.out.println(solutionV2018.reverseWords("  123     1"));//I love u
     }
 }
 
