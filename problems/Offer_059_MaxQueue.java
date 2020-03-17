@@ -10,7 +10,7 @@ import java.util.Queue;
  * @author masikkk.com
  * @create 2020-03-07 14:43
  */
-public class Offer059_MaxQueue {
+public class Offer_059_MaxQueue {
     private static class MaxQueue {
         // 数据队列
         Queue<Integer> dataQueue;

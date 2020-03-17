@@ -11,7 +11,7 @@ import java.util.List;
  * @author masikkk.com
  * @create 2020-03-06 13:27
  */
-public class Offer057_ContiguousIntegerSequenceOfSumS {
+public class Offer_057_ContiguousIntegerSequenceOfSumS {
     private static class SolutionV2020 {
         public int[][] findContinuousSequence(int sn) {
             LinkedList<List<Integer>> listList = new LinkedList<>();
