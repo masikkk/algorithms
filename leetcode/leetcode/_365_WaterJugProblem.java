@@ -7,6 +7,8 @@ import java.util.Set;
 import javafx.util.Pair;
 
 /**
+ * 水壶问题
+ * https://leetcode-cn.com/problems/water-and-jug-problem/
  * @author masikkk.com
  * @create 2020-03-21 16:36
  */
