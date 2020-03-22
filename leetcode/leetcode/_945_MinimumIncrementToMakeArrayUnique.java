@@ -41,7 +41,7 @@ public class _945_MinimumIncrementToMakeArrayUnique {
             return duplicateSum;
         }
 
-        // 超时
+        // 暴力，超时
         public int minIncrementForUnique_TimeLimitExceed(int[] A) {
             if (null == A || A.length < 2) {
                 return 0;
