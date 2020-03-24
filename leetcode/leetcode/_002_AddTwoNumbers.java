@@ -2,16 +2,20 @@ package leetcode.leetcode;
 
 import structs.ListNode;
 
+/**
+ * 两数相加
+ * https://leetcode-cn.com/problems/add-two-numbers/
+ */
 class _002_AddTwoNumbers {
-	private static class SolutionV2018 {
-		public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-			if (l1 == null && l2 == null) {
-				return null;
-			}
-			if (l1 == null || l2 == null) {
-				return l1 == null ? l2 : l1;
-			}
-			ListNode head = new ListNode(0);//值无用的头结点
+    private static class SolutionV2018 {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            if (l1 == null && l2 == null) {
+                return null;
+            }
+            if (l1 == null || l2 == null) {
+                return l1 == null ? l2 : l1;
+            }
+            ListNode head = new ListNode(0);//值无用的头结点
             ListNode prev = head;//记住上一个结点
             int carry = 0;//进位
 
@@ -44,7 +48,6 @@ class _002_AddTwoNumbers {
             prev.next = l1 != null ? l1 : l2;
             return head.next;
         }
-
     }
 
     public static void main(String[] args) {
@@ -54,8 +57,8 @@ class _002_AddTwoNumbers {
         ListNode l2 = ListNode.stringToListNode(input2);
         System.out.println("l1:  " + ListNode.listNodeToString(l1));
         System.out.println("l2:  " + ListNode.listNodeToString(l2));
-        SolutionV2018 solution = new SolutionV2018();
-        ListNode sum = solution.addTwoNumbers(l1, l2);
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        ListNode sum = solutionV2018.addTwoNumbers(l1, l2);
         System.out.println("sum: " + ListNode.listNodeToString(sum));
     }
 }
