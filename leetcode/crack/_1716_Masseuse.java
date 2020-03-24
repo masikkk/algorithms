@@ -3,7 +3,7 @@ package leetcode.crack;
 import structs.ListNode;
 
 /**
- * 按摩师
+ * 《程序员面试金典（第 6 版）》17.16 按摩师
  * https://leetcode-cn.com/problems/the-masseuse-lcci/
  * @author masikkk.com
  * @create 2020-03-24 10:11
@@ -19,14 +19,12 @@ public class _1716_Masseuse {
             // exclude[i]: nums[0...i] 中不包含 nums[i] 在内的最大值
             int[] exclude = new int[nums.length];
             include[0] = nums[0];
-            int max = nums[0]; // 全局最大值
 
             for (int i = 1; i < nums.length; i++) {
                 include[i] = exclude[i - 1] + nums[i];
                 exclude[i] = Math.max(include[i - 1], exclude[i - 1]);
-                max = Math.max(max, Math.max(include[i], exclude[i]));
             }
-            return max;
+            return Math.max(include[nums.length - 1], exclude[nums.length - 1]);
         }
     }
 

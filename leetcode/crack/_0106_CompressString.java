@@ -1,6 +1,6 @@
 package leetcode.crack;
 /**
- * 压缩字符串
+ * 《程序员面试金典（第 6 版）》01.06 压缩字符串
  * https://leetcode-cn.com/problems/compress-string-lcci/
  * @author masikkk.com
  * @create 2020-03-16 18:52
