@@ -19,7 +19,8 @@ public class _146_LRUCache {
         }
 
         public int get(int key) {
-            return super.get(key) != null ? super.get(key) : -1;
+            Integer res = super.get(key);
+            return res != null ? res : -1;
         }
 
         public void put(int key, int value) {
