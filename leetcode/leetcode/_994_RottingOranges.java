@@ -73,17 +73,17 @@ public class _994_RottingOranges {
                 + "[2,1,1],"
                 + "[1,1,0],"
                 + "[0,1,1]]";
-        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInteger2DArray(input1)));
+        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInt2DArray(input1)));
 
         String input2 = "["
                 + "[2,1,1],"
                 + "[0,1,1],"
                 + "[1,0,1]]";
-        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInteger2DArray(input2)));
+        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInt2DArray(input2)));
 
-        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInteger2DArray("[[0,2]]")));
+        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInt2DArray("[[0,2]]")));
 
         // 易错用例，两个2同时开始腐烂，只需2步即可
-        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInteger2DArray("[[2],[1],[1],[1],[2],[1],[1]]")));
+        System.out.println(solutionV2020.orangesRotting(ArrayUtils.stringToInt2DArray("[[2],[1],[1],[1],[2],[1],[1]]")));
     }
 }

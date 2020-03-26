@@ -54,10 +54,10 @@ public class _892_SurfaceAreaOf3DShapes {
 
     public static void main(String[] args) {
         SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInteger2DArray("[[2]]")));
-        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInteger2DArray("[[1,2],[3,4]]")));
-        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInteger2DArray("[[1,0],[0,2]]")));
-        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInteger2DArray("[[1,1,1],[1,0,1],[1,1,1]]")));
-        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInteger2DArray("[[2,2,2],[2,1,2],[2,2,2]]")));
+        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInt2DArray("[[2]]")));
+        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInt2DArray("[[1,2],[3,4]]")));
+        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInt2DArray("[[1,0],[0,2]]")));
+        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInt2DArray("[[1,1,1],[1,0,1],[1,1,1]]")));
+        System.out.println(solutionV2020.surfaceArea(ArrayUtils.stringToInt2DArray("[[2,2,2],[2,1,2],[2,2,2]]")));
     }
 }
