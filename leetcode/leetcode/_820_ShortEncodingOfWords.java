@@ -1,8 +1,11 @@
 package leetcode.leetcode;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import structs.TrieNode;
 
 /**
  * 单词的压缩编码
@@ -42,10 +45,39 @@ public class _820_ShortEncodingOfWords {
         }
     }
 
+    // 官方前缀树解法
+    private static class OfficeSolution {
+        public int minimumLengthEncoding(String[] words) {
+            TrieNode trie = new TrieNode();
+            Map<TrieNode, Integer> nodes = new HashMap();
+
+            for (int i = 0; i < words.length; ++i) {
+                String word = words[i];
+                TrieNode cur = trie;
+                for (int j = word.length() - 1; j >= 0; --j)
+                    cur = cur.get(word.charAt(j));
+                nodes.put(cur, i);
+            }
+
+            int ans = 0;
+            for (TrieNode node: nodes.keySet()) {
+                if (node.count == 0)
+                    ans += words[nodes.get(node)].length() + 1;
+            }
+            return ans;
+
+        }
+    }
+
     public static void main(String[] args) {
         SolutionV2020 solutionV2020 = new SolutionV2020();
         System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"time", "me", "bell"}));
         System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"c", "bc", "abc"}));
         System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"bc", "abc", "c", "a", "b"}));
+
+        OfficeSolution officeSolution = new OfficeSolution();
+        System.out.println(officeSolution.minimumLengthEncoding(new String[]{"time", "me", "bell"}));
+        System.out.println(officeSolution.minimumLengthEncoding(new String[]{"c", "bc", "abc"}));
+        System.out.println(officeSolution.minimumLengthEncoding(new String[]{"bc", "abc", "c", "a", "b"}));
     }
 }
