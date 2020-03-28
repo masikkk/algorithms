@@ -10,7 +10,7 @@ import structs.ListNode;
  * @author masikkk.com
  * @create 2020-03-27 13:36
  */
-public class _916_CardsGroup {
+public class _914_CardsGroup {
     private static class SolutionV2020 {
         public boolean hasGroupsSizeX(int[] deck) {
             if (null == deck || deck.length < 2) {
