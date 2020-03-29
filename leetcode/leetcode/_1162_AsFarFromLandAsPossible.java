@@ -1,10 +1,8 @@
 package leetcode.leetcode;
 
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Set;
 import javafx.util.Pair;
 import structs.ArrayUtils;
@@ -17,18 +15,13 @@ public class _1162_AsFarFromLandAsPossible {
     private static class SolutionV2020 {
         int[] dx = {-1, 0, 1, 0};
         int[] dy = {0, 1, 0, -1};
-        // 记录已找到的最近距离
-        Map<Pair<Integer, Integer>, Integer> map;
 
         public int maxDistance(int[][] grid) {
-            map = new HashMap<>();
             int maxNearestDistance = -1;
             for (int i = 0; i < grid.length; i++) {
                 for (int j = 0; j < grid[0].length; j++) {
                     if (grid[i][j] == 0) {
-                        int nearestDistance = bfs(grid, i, j);
-                        map.put(new Pair<>(i, j), nearestDistance);
-                        maxNearestDistance = Math.max(maxNearestDistance, nearestDistance);
+                        maxNearestDistance = Math.max(maxNearestDistance, bfs(grid, i, j));
                     }
                 }
             }
@@ -37,39 +30,29 @@ public class _1162_AsFarFromLandAsPossible {
 
         private int bfs(int[][] grid, int x, int y) {
             // 记录 (x,y) 是否已访问过，防止回退
-            Set<Pair<Integer, Integer>> set = new HashSet<>();
+            Set<Pair<Integer, Integer>> visited = new HashSet<>();
 
             Deque<Pair<Integer, Integer>> queue = new LinkedList<>();
             queue.offer(new Pair<>(x, y));
+            visited.add(new Pair<>(x, y));
 
-            int nearestDistance = Integer.MAX_VALUE;
             while (!queue.isEmpty()) {
                 Pair<Integer, Integer> pair = queue.poll();
-                set.add(pair);
-                if (grid[pair.getKey()][pair.getValue()] == 1) {
-                    int distance = distance(x, pair.getKey(), y, pair.getValue());
-                    if (distance < nearestDistance) {
-                        return distance;
-                    }
-                }
                 // 上下左右
                 for (int i = 0; i < 4; i++) {
                     int xx = pair.getKey() + dx[i], yy = pair.getValue() + dy[i];
                     Pair<Integer, Integer> newPair = new Pair<>(xx, yy);
-                    if (xx >= 0 && xx < grid.length && yy >= 0 && yy < grid[0].length && !set.contains(newPair)) {
-                        if (map.containsKey(newPair)) {
-                            nearestDistance = Math.min(nearestDistance, map.get(newPair) + distance(x, xx, y, yy));
+                    if (xx >= 0 && xx < grid.length && yy >= 0 && yy < grid[0].length && !visited.contains(newPair)) {
+                        if (grid[xx][yy] == 1) {
+                            return Math.abs(xx - x) + Math.abs(yy - y);
                         } else {
+                            visited.add(newPair);
                             queue.offer(new Pair<>(xx, yy));
                         }
                     }
                 }
             }
-            return nearestDistance;
-        }
-
-        private int distance(int x1, int x2, int y1, int y2) {
-            return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+            return -1;
         }
     }
 
