@@ -6,7 +6,7 @@ import javafx.util.Pair;
 import structs.ArrayUtils;
 
 /**
- * 距陆地最远的海洋
+ * 离所有陆地最远的海洋
  * https://leetcode-cn.com/problems/as-far-from-land-as-possible/
  * @author masikkk.com
  * @create 2020-03-29 17:09
