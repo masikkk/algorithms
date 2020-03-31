@@ -1,41 +1,50 @@
 package sort;
 
+import java.util.Arrays;
+
+/**
+ * 快速排序
+ */
 public class QuickSort {
-    public void sort(int[] a) {
-        quickSort(a, 0, a.length - 1);
+    public static int[] sort(int[] nums) {
+        if (null == nums || nums.length < 2) {
+            return nums;
+        }
+        qsort(nums, 0, nums.length - 1);
+        return nums;
     }
 
-    public void quickSort(int[] a, int low, int high) {
-        if (low >= high) {
+    private static void qsort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int loc = partition(a, low, high);
-        quickSort(a, low, loc - 1);
-        quickSort(a, loc + 1, high);
+        int location = partition(nums, left, right);
+        qsort(nums, left, location - 1);
+        qsort(nums, location + 1, right);
     }
 
-    public int partition(int[] a, int low, int high) {
-        int pivot = a[low];
-        while (low < high) {
-            while (low < high && a[high] >= pivot) {
-                high--;
+    private static int partition(int[] nums, int left, int right) {
+        int pivot = nums[left];
+        while (left < right) {
+            while (left < right && nums[right] >= pivot) {
+                right--;
             }
-            a[low] = a[high];
-            while (low < high && a[low] <= pivot) {
-                low++;
+            nums[left] = nums[right];
+            while (left < right && nums[left] <= pivot) {
+                left++;
             }
-            a[high] = a[low];
+            nums[right] = nums[left];
         }
-        a[low] = pivot;
-        return low;
+        nums[left] = pivot;
+        return left;
     }
 
     public static void main(String[] args) {
-        int[] input = {4, 13, 2, 8, 1, 5, 1};
-        QuickSort quickSort = new QuickSort();
-        quickSort.sort(input);
-        for (int a : input) {
-            System.out.print(a + " ");
-        }
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {4, 13, 2, 8, 1, 5, 1})));
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {5,2,3,1})));
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {5,1,1,2,0,0})));
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {5,1})));
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {1,5})));
+        System.out.println(Arrays.toString(QuickSort.sort(new int[] {1,2,3,4,5})));
     }
 }
