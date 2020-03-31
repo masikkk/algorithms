@@ -1,7 +1,11 @@
 package leetcode.leetcode;
 
-public class _657_JudgeRouteCircle {
-    private static class Solution {
+/**
+ * 机器人能否返回原点
+ * https://leetcode-cn.com/problems/robot-return-to-origin/
+ */
+public class _657_RobotReturnToOrigin {
+    private static class SolutionV2018 {
         public boolean judgeCircle(String moves) {
             int Lnum = 0, Rnum = 0, Unum = 0, Dnum = 0;
             for (int i = 0; i < moves.length(); i++) {
@@ -31,7 +35,7 @@ public class _657_JudgeRouteCircle {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.judgeCircle("UD"));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.judgeCircle("UD"));
     }
 }
