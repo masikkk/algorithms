@@ -1,8 +1,10 @@
 package structs;
 
 import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 /**
+ * 二维数组工具类
  * @author masikkk.com
  * @create 2020-02-29 22:53
  */
@@ -67,7 +69,8 @@ public class ArrayUtils {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testStringToInt2DArray() {
         System.out.println("-----------------grid------------------");
         int[][] grid = ArrayUtils.stringToInt2DArray("[[0,0,1,0,0,0,0,1,0,0,0,0,0],"
                 + " [0,0,0,0,0,0,0,1,1,1,0,0,0],"
@@ -86,7 +89,10 @@ public class ArrayUtils {
         System.out.println("\n-----------------grid3------------------");
         int[][] grid3 = ArrayUtils.stringToInt2DArray("[[0,2]]");
         printInt2DArray(grid3);
+    }
 
+    @Test
+    public void testStringToChar2DArray() {
         System.out.println("\n-----------------charGrid1------------------");
         char[][] charGrid1 = ArrayUtils.stringToChar2DArray("["
                 + "[.,.,.,.,.,.,.,.],"
@@ -98,7 +104,10 @@ public class ArrayUtils {
                 + "[.,.,.,p,.,.,.,.],"
                 + "[.,.,.,.,.,.,.,.]]");
         printChar2DArray(charGrid1);
+    }
 
+    @Test
+    public void testPrint2DArray() {
         printInt2DArray(new int[][] {{0, 1, 2}, {2, 1}, {1}});
     }
 }
