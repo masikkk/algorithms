@@ -53,6 +53,20 @@ public class ArrayUtils {
         return res;
     }
 
+    // 打印int二位数组
+    public static void printInt2DArray(int[][] input) {
+        for (int[] row : input) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
+
+    // 打印char二位数组
+    public static void printChar2DArray(char[][] input) {
+        for (char[] row : input) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("-----------------grid------------------");
         int[][] grid = ArrayUtils.stringToInt2DArray("[[0,0,1,0,0,0,0,1,0,0,0,0,0],"
@@ -63,21 +77,15 @@ public class ArrayUtils {
                 + " [0,0,0,0,0,0,0,0,0,0,1,0,0],"
                 + " [0,0,0,0,0,0,0,1,1,1,0,0,0],"
                 + " [0,0,0,0,0,0,0,1,1,0,0,0,0]]");
-        for (int[] row : grid) {
-            System.out.println(Arrays.toString(row));
-        }
+        printInt2DArray(grid);
 
         System.out.println("\n-----------------grid2------------------");
         int[][] grid2 = ArrayUtils.stringToInt2DArray("[[0,0,0,0,0,0,0,0]]");
-        for (int[] row : grid2) {
-            System.out.println(Arrays.toString(row));
-        }
+        printInt2DArray(grid2);
 
         System.out.println("\n-----------------grid3------------------");
         int[][] grid3 = ArrayUtils.stringToInt2DArray("[[0,2]]");
-        for (int[] row : grid3) {
-            System.out.println(Arrays.toString(row));
-        }
+        printInt2DArray(grid3);
 
         System.out.println("\n-----------------charGrid1------------------");
         char[][] charGrid1 = ArrayUtils.stringToChar2DArray("["
@@ -89,8 +97,8 @@ public class ArrayUtils {
                 + "[.,.,.,B,.,.,.,.],"
                 + "[.,.,.,p,.,.,.,.],"
                 + "[.,.,.,.,.,.,.,.]]");
-        for (char[] row : charGrid1) {
-            System.out.println(Arrays.toString(row));
-        }
+        printChar2DArray(charGrid1);
+
+        printInt2DArray(new int[][] {{0, 1, 2}, {2, 1}, {1}});
     }
 }
