@@ -11,6 +11,7 @@ public class _008_StringToIntegerAtoi {
             if (null == str) {
                 return 0;
             }
+            // 去掉前后空白
             str = str.trim();
             if (str.length() == 0) {
                 return 0;
@@ -27,15 +28,8 @@ public class _008_StringToIntegerAtoi {
             } else if (!(chars[0] >= '0' && chars[0] <= '9')) {
                 return 0;
             }
-
-            // 处理末尾的非数字字符
-            int end = chars.length - 1;
-            while (end >= start && !(chars[end] >= '0' && chars[end] <= '9')) {
-                end--;
-            }
-
             long res = 0;
-            for (int i = start; i <= end; i++) {
+            for (int i = start; i < chars.length; i++) {
                 if (chars[i] >= '0' && chars[i] <= '9') {
                     long temp = res * 10 + chars[i] - '0';
                     if (temp * sign > Integer.MAX_VALUE) {
