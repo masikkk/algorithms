@@ -3,8 +3,12 @@ package leetcode.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 自除数
+ * https://leetcode-cn.com/problems/self-dividing-numbers/
+ */
 public class _728_SelfDividingNumbers {
-    private static class Solution {
+    private static class SolutionV2018 {
         public List<Integer> selfDividingNumbers(int left, int right) {
             List<Integer> arrayList = new ArrayList<Integer>();
             for (int i = left; i <= right; i++) {
@@ -31,8 +35,8 @@ public class _728_SelfDividingNumbers {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        List<Integer> list = solution.selfDividingNumbers(100, 1000);
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        List<Integer> list = solutionV2018.selfDividingNumbers(100, 1000);
         System.out.println(list);
     }
 }
