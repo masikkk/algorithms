@@ -1,11 +1,15 @@
 # 算法题
 博客 LeetCode 标签：
+
 http://masikkk.com/tags/LeetCode/
 
 # 项目结构
 2020.4.2 为项目增加 maven 支持，引入 junit5 测试框架
+
 clone 后用 IDEA 打开，进行如下设置：
+
 File -> Project Structure -> Modules
+
 把根目录 `.` 设为 Test Source Folders
 
 目录 `leetcode` 中是 LeetCode 上的题目，目录中再分为3个子目录(Java包): 
