@@ -50,23 +50,20 @@ public class _008_StringToIntegerAtoi {
         }
 
         public int myAtoi2(String str) {
-            Pattern pattern = Pattern.compile("( *)([^0-9+-]*)([+-]*)(\\d+).*");
+            Pattern pattern = Pattern.compile("( *)([+-]?\\d+).*");
             Matcher matcher = pattern.matcher(str);
+            // 先用 matches() 对整个串进行完全匹配
+            if (!matcher.matches()) {
+                return 0;
+            }
+            // 重置匹配器后，使用 find() 进行部分匹配，其中的第2个捕获组就是合法整数对应的字符串
+            matcher.reset();
             if (matcher.find()) {
-                if (!matcher.group(2).equals("")) {
-//                    System.out.println(matcher.group(2));
-                    return 0;
-                }
-                if (matcher.group(3).length() > 1) {
-                    return 0;
-                }
-                int sign = matcher.group(3).equals("-") ? -1 : 1;
-                String valid = matcher.group(4);
+                String validIntStr = matcher.group(2);
                 try {
-                    int res = Integer.parseInt(valid);
-                    return res * sign;
+                    return Integer.parseInt(validIntStr);
                 } catch (NumberFormatException e) {
-                    return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                    return validIntStr.startsWith("-") ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                 }
             }
             return 0;
@@ -82,13 +79,13 @@ public class _008_StringToIntegerAtoi {
 //        System.out.println(solutionV2020.myAtoi("-91283472332"));
 //        System.out.println(solutionV2020.myAtoi("3.14159"));
 
-//        System.out.println(solutionV2020.myAtoi2("42"));
-//        System.out.println(solutionV2020.myAtoi2("   -42"));
-//        System.out.println(solutionV2020.myAtoi2("4193 with words"));
-//        System.out.println(solutionV2020.myAtoi2("words and 987"));
-//        System.out.println(solutionV2020.myAtoi2("3.14159"));
-//        System.out.println(solutionV2020.myAtoi2("-91283472332"));
-//        System.out.println(solutionV2020.myAtoi2("+-2"));
+        System.out.println(solutionV2020.myAtoi2("42"));
+        System.out.println(solutionV2020.myAtoi2("   -42"));
+        System.out.println(solutionV2020.myAtoi2("4193 with words"));
+        System.out.println(solutionV2020.myAtoi2("words and 987"));
+        System.out.println(solutionV2020.myAtoi2("3.14159"));
+        System.out.println(solutionV2020.myAtoi2("-91283472332"));
+        System.out.println(solutionV2020.myAtoi2("+-2"));
         System.out.println(solutionV2020.myAtoi2("-  234"));
     }
 }
