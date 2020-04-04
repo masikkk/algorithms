@@ -1,4 +1,8 @@
 package leetcode.leetcode;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 字符串转换整数 (atoi)
  * https://leetcode-cn.com/problems/string-to-integer-atoi/
@@ -44,15 +48,47 @@ public class _008_StringToIntegerAtoi {
             }
             return (int)res * sign;
         }
+
+        public int myAtoi2(String str) {
+            Pattern pattern = Pattern.compile("( *)([^0-9+-]*)([+-]*)(\\d+).*");
+            Matcher matcher = pattern.matcher(str);
+            if (matcher.find()) {
+                if (!matcher.group(2).equals("")) {
+//                    System.out.println(matcher.group(2));
+                    return 0;
+                }
+                if (matcher.group(3).length() > 1) {
+                    return 0;
+                }
+                int sign = matcher.group(3).equals("-") ? -1 : 1;
+                String valid = matcher.group(4);
+                try {
+                    int res = Integer.parseInt(valid);
+                    return res * sign;
+                } catch (NumberFormatException e) {
+                    return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                }
+            }
+            return 0;
+        }
     }
 
     public static void main(String[] args) {
         SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.myAtoi("42"));
-        System.out.println(solutionV2020.myAtoi("   -42"));
-        System.out.println(solutionV2020.myAtoi("4193 with words"));
-        System.out.println(solutionV2020.myAtoi("words and 987"));
-        System.out.println(solutionV2020.myAtoi("-91283472332"));
-        System.out.println(solutionV2020.myAtoi("3.14159"));
+//        System.out.println(solutionV2020.myAtoi("42"));
+//        System.out.println(solutionV2020.myAtoi("   -42"));
+//        System.out.println(solutionV2020.myAtoi("4193 with words"));
+//        System.out.println(solutionV2020.myAtoi("words and 987"));
+//        System.out.println(solutionV2020.myAtoi("-91283472332"));
+//        System.out.println(solutionV2020.myAtoi("3.14159"));
+
+//        System.out.println(solutionV2020.myAtoi2("42"));
+//        System.out.println(solutionV2020.myAtoi2("   -42"));
+//        System.out.println(solutionV2020.myAtoi2("4193 with words"));
+//        System.out.println(solutionV2020.myAtoi2("words and 987"));
+//        System.out.println(solutionV2020.myAtoi2("3.14159"));
+//        System.out.println(solutionV2020.myAtoi2("-91283472332"));
+//        System.out.println(solutionV2020.myAtoi2("+-2"));
+        System.out.println(solutionV2020.myAtoi2("-  234"));
     }
 }
