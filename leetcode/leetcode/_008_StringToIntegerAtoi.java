@@ -50,6 +50,7 @@ public class _008_StringToIntegerAtoi {
         }
 
         public int myAtoi2(String str) {
+            // ( *) 匹配0个或多个空格，[+-]? 匹配0个或1个符号位， \d+ 匹配1个或多个数字， .* 匹配剩余后缀字符
             Pattern pattern = Pattern.compile("( *)([+-]?\\d+).*");
             Matcher matcher = pattern.matcher(str);
             // 先用 matches() 对整个串进行完全匹配
