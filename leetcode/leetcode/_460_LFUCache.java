@@ -6,6 +6,8 @@ import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 
 /**
+ * 实现LFU缓存
+ * https://leetcode-cn.com/problems/lfu-cache/
  * @author si.ma
  * @create 2020-04-05 19:05
  */
