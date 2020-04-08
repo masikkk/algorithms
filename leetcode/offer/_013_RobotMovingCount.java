@@ -47,15 +47,16 @@ public class _013_RobotMovingCount {
             // 右 ️
             dfs(x, y + 1, k);
         }
+    }
 
-        @Test
-        public void test() {
-            System.out.println(movingCount(2, 3, 1));
-            System.out.println(movingCount(3, 1, 0));
-            System.out.println(movingCount(3, 2, 17));
-            System.out.println(movingCount(11, 8, 16));
-            System.out.println(movingCount(36, 11, 15));
-        }
+    @Test
+    public void testDfs() {
+        SolutionV2020_DFS solutionV2020_dfs = new SolutionV2020_DFS();
+        System.out.println(solutionV2020_dfs.movingCount(2, 3, 1));
+        System.out.println(solutionV2020_dfs.movingCount(3, 1, 0));
+        System.out.println(solutionV2020_dfs.movingCount(3, 2, 17));
+        System.out.println(solutionV2020_dfs.movingCount(11, 8, 16));
+        System.out.println(solutionV2020_dfs.movingCount(36, 11, 15));
     }
 
     // BFS，合法的下层结点才入队列
@@ -92,15 +93,16 @@ public class _013_RobotMovingCount {
             }
             return false;
         }
+    }
 
-        @Test
-        public void test() {
-            System.out.println(movingCount(2, 3, 1));
-            System.out.println(movingCount(3, 1, 0));
-            System.out.println(movingCount(3, 2, 17));
-            System.out.println(movingCount(11, 8, 16));
-            System.out.println(movingCount(36, 11, 15));
-        }
+    @Test
+    public void testBfsValidEnQueue() {
+        SolutionV2020_BFS_ValidEnQueue solutionV2020_bfs_validEnQueue = new SolutionV2020_BFS_ValidEnQueue();
+        System.out.println(solutionV2020_bfs_validEnQueue.movingCount(2, 3, 1));
+        System.out.println(solutionV2020_bfs_validEnQueue.movingCount(3, 1, 0));
+        System.out.println(solutionV2020_bfs_validEnQueue.movingCount(3, 2, 17));
+        System.out.println(solutionV2020_bfs_validEnQueue.movingCount(11, 8, 16));
+        System.out.println(solutionV2020_bfs_validEnQueue.movingCount(36, 11, 15));
     }
 
     // BFS，下一层不判断就入队
@@ -125,14 +127,15 @@ public class _013_RobotMovingCount {
             }
             return count;
         }
+    }
 
-        @Test
-        public void test() {
-            System.out.println(movingCount(2, 3, 1));
-            System.out.println(movingCount(3, 1, 0));
-            System.out.println(movingCount(3, 2, 17));
-            System.out.println(movingCount(11, 8, 16));
-            System.out.println(movingCount(36, 11, 15));
-        }
+    @Test
+    public void testBfsAllEnQueue() {
+        SolutionV2020_BFS_AllEnQueue solutionV2020_bfs_allEnQueue = new SolutionV2020_BFS_AllEnQueue();
+        System.out.println(solutionV2020_bfs_allEnQueue.movingCount(2, 3, 1));
+        System.out.println(solutionV2020_bfs_allEnQueue.movingCount(3, 1, 0));
+        System.out.println(solutionV2020_bfs_allEnQueue.movingCount(3, 2, 17));
+        System.out.println(solutionV2020_bfs_allEnQueue.movingCount(11, 8, 16));
+        System.out.println(solutionV2020_bfs_allEnQueue.movingCount(36, 11, 15));
     }
 }
