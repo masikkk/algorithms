@@ -14,7 +14,8 @@ import org.junit.jupiter.api.Test;
  * @create 2020-04-08 11:57
  */
 public class _013_RobotMovingCount {
-    private static class SolutionV2020DFS {
+    // 深度优先搜索 最快
+    private static class SolutionV2020_DFS {
         private int count;
         private int rows, columns;
         // 访问过的坐标
@@ -46,19 +47,64 @@ public class _013_RobotMovingCount {
             // 右 ️
             dfs(x, y + 1, k);
         }
+
+        @Test
+        public void test() {
+            System.out.println(movingCount(2, 3, 1));
+            System.out.println(movingCount(3, 1, 0));
+            System.out.println(movingCount(3, 2, 17));
+            System.out.println(movingCount(11, 8, 16));
+            System.out.println(movingCount(36, 11, 15));
+        }
     }
 
-    @Test
-    public void testSolutionV2020() {
-        SolutionV2020DFS solutionV2020DFS = new SolutionV2020DFS();
-        System.out.println(solutionV2020DFS.movingCount(2, 3, 1));
-        System.out.println(solutionV2020DFS.movingCount(3, 1, 0));
-        System.out.println(solutionV2020DFS.movingCount(3, 2, 17));
-        System.out.println(solutionV2020DFS.movingCount(11, 8, 16));
-        System.out.println(solutionV2020DFS.movingCount(36, 11, 15));
+    // BFS，合法的下层结点才入队列
+    private static class SolutionV2020_BFS_ValidEnQueue {
+        public int movingCount(int m, int n, int k) {
+            int count = 0;
+            Set<Pair<Integer, Integer>> visited = new HashSet<>();
+            Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
+            queue.offer(new Pair<>(0, 0));
+            while (!queue.isEmpty()) {
+                Pair<Integer, Integer> pair = queue.poll();
+                if (!visited.contains(pair)) {
+                    visited.add(pair);
+                    count++;
+                    int x = pair.getKey(), y = pair.getValue();
+                    if (valid(x+1, y, m, n, k)) {
+                        queue.offer(new Pair<>(x+1, y));
+                    }
+                    if (valid(x+1, y+1, m, n, k)) {
+                        queue.offer(new Pair<>(x+1, y+1));
+                    }
+                    if (valid(x, y+1, m, n, k)) {
+                        queue.offer(new Pair<>(x, y+1));
+                    }
+                }
+            }
+            return count;
+        }
+
+        // 判断(x,y)是否合法
+        private boolean valid(int x, int y, int m, int n, int k) {
+            if (x < m && y < n && (x / 10 + x % 10 + y / 10 + y % 10) <= k) {
+                return true;
+            }
+            return false;
+        }
+
+        @Test
+        public void test() {
+            System.out.println(movingCount(2, 3, 1));
+            System.out.println(movingCount(3, 1, 0));
+            System.out.println(movingCount(3, 2, 17));
+            System.out.println(movingCount(11, 8, 16));
+            System.out.println(movingCount(36, 11, 15));
+        }
     }
 
-    private static class SolutionV2020BFS {
+    // BFS，下一层不判断就入队
+    private static class SolutionV2020_BFS_AllEnQueue {
         public int movingCount(int m, int n, int k) {
             int count = 0;
             Set<Pair<Integer, Integer>> visited = new HashSet<>();
@@ -79,15 +125,14 @@ public class _013_RobotMovingCount {
             }
             return count;
         }
-    }
 
-    @Test
-    public void testSolutionV2020BFS() {
-        SolutionV2020BFS solutionV2020BFS = new SolutionV2020BFS();
-        System.out.println(solutionV2020BFS.movingCount(2, 3, 1));
-        System.out.println(solutionV2020BFS.movingCount(3, 1, 0));
-        System.out.println(solutionV2020BFS.movingCount(3, 2, 17));
-        System.out.println(solutionV2020BFS.movingCount(11, 8, 16));
-        System.out.println(solutionV2020BFS.movingCount(36, 11, 15));
+        @Test
+        public void test() {
+            System.out.println(movingCount(2, 3, 1));
+            System.out.println(movingCount(3, 1, 0));
+            System.out.println(movingCount(3, 2, 17));
+            System.out.println(movingCount(11, 8, 16));
+            System.out.println(movingCount(36, 11, 15));
+        }
     }
 }
