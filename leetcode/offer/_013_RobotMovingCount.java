@@ -1,8 +1,11 @@
 package leetcode.offer;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Set;
 import javafx.util.Pair;
+import org.junit.jupiter.api.Test;
 
 /**
  * 《剑指offer》面试题13. 机器人的运动范围
@@ -11,7 +14,7 @@ import javafx.util.Pair;
  * @create 2020-04-08 11:57
  */
 public class _013_RobotMovingCount {
-    private static class SolutiionV2020 {
+    private static class SolutionV2020DFS {
         private int count;
         private int rows, columns;
         // 访问过的坐标
@@ -45,12 +48,46 @@ public class _013_RobotMovingCount {
         }
     }
 
-    public static void main(String[] args) {
-        SolutiionV2020 solutiionV2020 = new SolutiionV2020();
-        System.out.println(solutiionV2020.movingCount(2, 3, 1));
-        System.out.println(solutiionV2020.movingCount(3, 1, 0));
-        System.out.println(solutiionV2020.movingCount(3, 2, 17));
-        System.out.println(solutiionV2020.movingCount(11, 8, 16));
-        System.out.println(solutiionV2020.movingCount(36, 11, 15));
+    @Test
+    public void testSolutionV2020() {
+        SolutionV2020DFS solutionV2020DFS = new SolutionV2020DFS();
+        System.out.println(solutionV2020DFS.movingCount(2, 3, 1));
+        System.out.println(solutionV2020DFS.movingCount(3, 1, 0));
+        System.out.println(solutionV2020DFS.movingCount(3, 2, 17));
+        System.out.println(solutionV2020DFS.movingCount(11, 8, 16));
+        System.out.println(solutionV2020DFS.movingCount(36, 11, 15));
+    }
+
+    private static class SolutionV2020BFS {
+        public int movingCount(int m, int n, int k) {
+            int count = 0;
+            Set<Pair<Integer, Integer>> visited = new HashSet<>();
+            Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
+            queue.offer(new Pair<>(0, 0));
+            while (!queue.isEmpty()) {
+                Pair<Integer, Integer> pair = queue.poll();
+                if (!visited.contains(pair)) {
+                    visited.add(pair);
+                    int x = pair.getKey(), y = pair.getValue();
+                    if (x < m && y < n && (x/10 + x%10 + y/10 + y%10) <= k) {
+                        count++;
+                        queue.offer(new Pair<>(x+1, y));
+                        queue.offer(new Pair<>(x+1, y+1));
+                        queue.offer(new Pair<>(x, y+1));
+                    }
+                }
+            }
+            return count;
+        }
+    }
+
+    @Test
+    public void testSolutionV2020BFS() {
+        SolutionV2020BFS solutionV2020BFS = new SolutionV2020BFS();
+        System.out.println(solutionV2020BFS.movingCount(2, 3, 1));
+        System.out.println(solutionV2020BFS.movingCount(3, 1, 0));
+        System.out.println(solutionV2020BFS.movingCount(3, 2, 17));
+        System.out.println(solutionV2020BFS.movingCount(11, 8, 16));
+        System.out.println(solutionV2020BFS.movingCount(36, 11, 15));
     }
 }
