@@ -14,6 +14,7 @@ public class _013_RobotMovingCount {
     private static class SolutiionV2020 {
         private int count;
         private int rows, columns;
+        // 访问过的坐标
         private Set<Pair<Integer, Integer>> visited;
 
         public int movingCount(int m, int n, int k) {
@@ -30,22 +31,26 @@ public class _013_RobotMovingCount {
                 return;
             }
             Pair<Integer, Integer> pair = new Pair<>(x, y);
-            if (!visited.contains(pair)) {
-                count++;
-                visited.add(pair);
+            if (visited.contains(pair)) {
+                return;
             }
+            count++;
+            visited.add(pair);
+            // 下
             dfs(x + 1, y, k);
+            // 右下
             dfs(x + 1, y + 1, k);
+            // 右 ️
             dfs(x, y + 1, k);
         }
     }
 
     public static void main(String[] args) {
         SolutiionV2020 solutiionV2020 = new SolutiionV2020();
-//        System.out.println(solutiionV2020.movingCount(2, 3, 1));
-//        System.out.println(solutiionV2020.movingCount(3, 1, 0));
-//        System.out.println(solutiionV2020.movingCount(3, 2, 17));
-//        System.out.println(solutiionV2020.movingCount(11, 8, 16));
+        System.out.println(solutiionV2020.movingCount(2, 3, 1));
+        System.out.println(solutiionV2020.movingCount(3, 1, 0));
+        System.out.println(solutiionV2020.movingCount(3, 2, 17));
+        System.out.println(solutiionV2020.movingCount(11, 8, 16));
         System.out.println(solutiionV2020.movingCount(36, 11, 15));
     }
 }
