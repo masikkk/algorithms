@@ -13,6 +13,56 @@ import org.junit.jupiter.api.Test;
  * @create 2020-04-08 16:50
  */
 public class _055_JumpGame {
+    // 带备忘录的DF，超时，能通过 74/75 个测试用例S
+    private static class SolutionV2020DfsWithMemo {
+        Set<Integer> good;
+        Set<Integer> bad;
+        public boolean canJump(int[] nums) {
+            if (null == nums || nums.length < 2) {
+                return true;
+            }
+            // good 可到达结尾的结点集, bad 不可到达结尾的结点集
+            good = new HashSet<>();
+            bad = new HashSet<>();
+            return dfs(nums, 0);
+        }
+
+        // 深度优先搜索
+        private boolean dfs(int[] nums, int start) {
+            if (good.contains(start)) {
+                return true;
+            } else if (bad.contains(start)) {
+                return false;
+            }
+            // 优化，i 从 nums[start] 往前 遍历，也就是从跳的最远的位置开始dfs
+            for (int i = nums[start]; i >= 1; i--) {
+                if (start + i >= nums.length - 1) {
+                    good.add(start + i);
+                    return true;
+                }
+                if (dfs(nums, start + i)) {
+                    good.add(start + i);
+                    return true;
+                } else {
+                    bad.add(start + i);
+                }
+            }
+            return false;
+        }
+    }
+
+    @Test
+    public void testSolutionV2020DfsWithMemo() {
+        SolutionV2020DfsWithMemo solutionV2020DfsWithMemo = new SolutionV2020DfsWithMemo();
+        System.out.println(solutionV2020DfsWithMemo.canJump(new int[] {2,5,0,0}));
+        System.out.println(solutionV2020DfsWithMemo.canJump(new int[] {2,3,1,1,4}));
+        System.out.println(solutionV2020DfsWithMemo.canJump(new int[] {3,2,1,0,4}));
+        System.out.println(solutionV2020DfsWithMemo.canJump(
+                new int[]{1, 2, 2, 6, 3, 6, 1, 8, 9, 4, 7, 6, 5, 6, 8, 2, 6, 1, 3, 6, 6, 6, 3, 2, 4, 9, 4, 5, 9, 8, 2, 2, 1, 6, 1, 6, 2, 2, 6, 1, 8,
+                        6, 8, 3, 2, 8, 5, 8, 0, 1, 4, 8, 7, 9, 0, 3, 9, 4, 8, 0, 2, 2, 5, 5, 8, 6, 3, 1, 0, 2, 4, 9, 8, 4, 4, 2, 3, 2, 2, 5, 5, 9, 3,
+                        2, 8, 5, 8, 9, 1, 6, 2, 5, 9, 9, 3, 9, 7, 6, 0, 7, 8, 7, 8, 8, 3, 5, 0}));
+    }
+
     // 深度优先搜索（回溯），超时，能通过 74/75 个测试用例
     private static class SolutionV2020DFS {
         Set<Integer> visited;
@@ -27,6 +77,9 @@ public class _055_JumpGame {
 
         // 深度优先搜索
         private boolean dfs(int[] nums, int start) {
+            if (visited.contains(start)) {
+                return false;
+            }
             // 优化，i 从 nums[start] 往前 遍历，也就是从跳的最远的位置开始dfs
             for (int i = nums[start]; i >= 1; i--) {
                 if (start + i >= nums.length - 1) {
@@ -48,6 +101,7 @@ public class _055_JumpGame {
         SolutionV2020DFS solutionV2020DFS = new SolutionV2020DFS();
         System.out.println(solutionV2020DFS.canJump(new int[] {2,3,1,1,4}));
         System.out.println(solutionV2020DFS.canJump(new int[] {3,2,1,0,4}));
+        System.out.println(solutionV2020DFS.canJump(new int[] {2,5,0,0}));
         System.out.println(solutionV2020DFS.canJump(
                 new int[]{1, 2, 2, 6, 3, 6, 1, 8, 9, 4, 7, 6, 5, 6, 8, 2, 6, 1, 3, 6, 6, 6, 3, 2, 4, 9, 4, 5, 9, 8, 2, 2, 1, 6, 1, 6, 2, 2, 6, 1, 8,
                         6, 8, 3, 2, 8, 5, 8, 0, 1, 4, 8, 7, 9, 0, 3, 9, 4, 8, 0, 2, 2, 5, 5, 8, 6, 3, 1, 0, 2, 4, 9, 8, 4, 4, 2, 3, 2, 2, 5, 5, 9, 3,
