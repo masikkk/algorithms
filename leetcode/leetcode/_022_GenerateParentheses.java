@@ -57,7 +57,7 @@ public class _022_GenerateParentheses {
                 // 回溯(撤回)
                 deque.pollLast();
 
-                // 当 deque 里左括号比右括号多时，可以放右括号
+                // 当 deque 里左括号比右括号多时，可以选择右括号
                 if (leftCount > deque.size() - leftCount) {
                     // 选择右括号
                     deque.offer(")");
