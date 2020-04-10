@@ -2,6 +2,7 @@ package leetcode.leetcode;
 
 /**
  * 反转字符串
+ * https://leetcode-cn.com/problems/reverse-string/
  */
 public class _344_ReverseString {
     private static class SolutionV2018 {
@@ -30,7 +31,7 @@ public class _344_ReverseString {
     }
 
     public static void main(String[] args) {
-        SolutionV2018 solution = new SolutionV2018();
-        System.out.println(solution.reverseString("Masikkk"));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.reverseString("Masikkk"));
     }
 }

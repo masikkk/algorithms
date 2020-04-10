@@ -1,7 +1,11 @@
 package leetcode.leetcode;
 
+/**
+ * 反转字符串 II
+ * https://leetcode-cn.com/problems/reverse-string-ii/
+ */
 public class _541_ReverseString2 {
-    private static class Solution {
+    private static class SolutionV2018 {
         public String reverseStr(String s, int k) {
             StringBuilder result = new StringBuilder("");
             int i = 0;
@@ -27,7 +31,7 @@ public class _541_ReverseString2 {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.reverseStr("abcdefg", 10));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.reverseStr("abcdefg", 10));
     }
 }
