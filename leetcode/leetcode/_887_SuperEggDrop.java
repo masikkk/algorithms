@@ -19,7 +19,7 @@ public class _887_SuperEggDrop {
                 return 1;
             }
             // dp[i][j] 表示有 i 个鸡蛋 j 层楼时最坏情况下的最小尝试次数
-            // 则有 dp[i][j] = min{max{dp[i-1][x-1]}, dp[i][j-x], x = 1,...,j} + 1
+            // 则有 dp[i][j] = min{max{dp[i-1][x-1], dp[i][j-x]}, x = 1,...,j} + 1
             int[][] dp = new int[k + 1][n + 1]; // 默认全为0
 
             // 楼层数为1时，无论有多少个鸡蛋最小尝试次数肯定是1
@@ -35,7 +35,7 @@ public class _887_SuperEggDrop {
             // 遍历填表
             for (int i = 2; i <= k; i++) {
                 for (int j = 2; j <= n; j++) {
-                    // dp[i-1][x-1] 是 x 的单调递增函数， dp[i][j-x] 是 x 的单调递减函数，所以一定是在交点处 max{dp[i-1][x-1]}, dp[i][j-x], x = 1,...,j} 最小
+                    // dp[i-1][x-1] 是 x 的单调递增函数， dp[i][j-x] 是 x 的单调递减函数，所以一定是在交点处 max{dp[i-1][x-1], dp[i][j-x]} 最小
                     // 使用二分搜索优化 x=1,...j 的遍历
                     int low = 1, high = j;
                     while (low < high) {
@@ -80,7 +80,7 @@ public class _887_SuperEggDrop {
                 return 1;
             }
             // dp[i][j] 表示有 i 个鸡蛋 j 层楼时最坏情况下的最小尝试次数
-            // 则有 dp[i][j] = min{max{dp[i-1][x-1]}, dp[i][j-x], x = 1,...,j} + 1
+            // 则有 dp[i][j] = min{max{dp[i-1][x-1], dp[i][j-x]}, x = 1,...,j} + 1
             int[][] dp = new int[k + 1][n + 1]; // 默认全为0
 
             // 楼层数为1时，无论有多少个鸡蛋最小尝试次数肯定是1
