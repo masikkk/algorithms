@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 《剑指offer》面试题13. 机器人的运动范围
  * https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-08 11:57
  */
 public class _013_RobotMovingCount {

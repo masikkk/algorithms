@@ -9,10 +9,15 @@ import org.junit.jupiter.api.Test;
 /**
  * 跳跃游戏
  * https://leetcode-cn.com/problems/jump-game/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-08 16:50
  */
 public class _055_JumpGame {
+    private static class SolutionV2020Greedy {
+
+    }
+
+
     // 带备忘录的DF，超时，能通过 74/75 个测试用例S
     private static class SolutionV2020DfsWithMemo {
         Set<Integer> good;

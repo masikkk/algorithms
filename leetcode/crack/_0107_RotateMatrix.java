@@ -5,7 +5,7 @@ import structs.ArrayUtils;
 /**
  * 《程序员面试金典（第 6 版）》面试题 01.07. 旋转矩阵
  * https://leetcode-cn.com/problems/rotate-matrix-lcci/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-07 13:56
  */
 public class _0107_RotateMatrix {

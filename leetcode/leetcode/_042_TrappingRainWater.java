@@ -5,7 +5,7 @@ import structs.ListNode;
 /**
  * 接雨水
  * https://leetcode-cn.com/problems/trapping-rain-water/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-04 19:38
  */
 public class _042_TrappingRainWater {

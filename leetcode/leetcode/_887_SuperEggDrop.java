@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 鸡蛋掉落
  * https://leetcode-cn.com/problems/super-egg-drop/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-11 16:58
  */
 public class _887_SuperEggDrop {

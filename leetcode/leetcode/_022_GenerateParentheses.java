@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * 括号生成
  * https://leetcode-cn.com/problems/generate-parentheses/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-09 14:05
  */
 public class _022_GenerateParentheses {

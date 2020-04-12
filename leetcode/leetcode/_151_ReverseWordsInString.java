@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * 翻转字符串里的单词
  * https://leetcode-cn.com/problems/reverse-words-in-a-string/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-10 10:25
  */
 public class _151_ReverseWordsInString {

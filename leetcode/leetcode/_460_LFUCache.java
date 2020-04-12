@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 实现LFU缓存
  * https://leetcode-cn.com/problems/lfu-cache/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-05 19:05
  */
 public class _460_LFUCache {

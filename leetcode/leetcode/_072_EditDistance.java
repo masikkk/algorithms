@@ -2,7 +2,7 @@ package leetcode.leetcode;
 /**
  * 编辑距离
  * https://leetcode-cn.com/problems/edit-distance/
- * @author si.ma
+ * @author masikkk.com
  * @create 2020-04-06 17:42
  */
 public class _072_EditDistance {
