@@ -17,6 +17,7 @@ public class _056_MergeIntervals {
             if (null == intervals || intervals.length < 2) {
                 return intervals;
             }
+//            Arrays.sort(intervals, (v1, v2) -> v1[0]); // 可直接对数组排序
             List<Pair<Integer, Integer>> intervalList = new ArrayList<>();
             for (int[] interval : intervals) {
                 intervalList.add(new Pair<>(interval[0], interval[1]));
