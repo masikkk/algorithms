@@ -9,7 +9,7 @@ import structs.ListNode;
  * @create 2020-04-04 19:38
  */
 public class _042_TrappingRainWater {
-    private static class SolutionV2020 {
+    private static class SolutionV2020Brutal {
         public int trap(int[] height) {
             if (null == height || height.length < 3) {
                 return 0;
@@ -39,8 +39,8 @@ public class _042_TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.trap(ListNode.stringToIntegerArray("[0,1,0,2,1,0,1,3,2,1,2,1]")));
-        System.out.println(solutionV2020.trap(ListNode.stringToIntegerArray("[1,0,1]")));
+        SolutionV2020Brutal solutionV2020Brutal = new SolutionV2020Brutal();
+        System.out.println(solutionV2020Brutal.trap(ListNode.stringToIntegerArray("[0,1,0,2,1,0,1,3,2,1,2,1]")));
+        System.out.println(solutionV2020Brutal.trap(ListNode.stringToIntegerArray("[1,0,1]")));
     }
 }
