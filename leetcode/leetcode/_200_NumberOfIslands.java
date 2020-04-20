@@ -33,6 +33,7 @@ public class _200_NumberOfIslands {
             {'1', '0', '1', '0', '1' },
             {'1', '1', '1', '0', '1' }};
 
+    // dfs 迭代实现
     private static class SolutionV2020Iterative {
         public int numIslands(char[][] grid) {
             if (null == grid || grid.length == 0) {
@@ -88,6 +89,7 @@ public class _200_NumberOfIslands {
         System.out.println(solutionV2020Iterative.numIslands(grid4));
     }
 
+    // dfs 递归实现
     private static class SolutionV2020Recursive {
         int numRows, numColumns;
         int[] dx = {-1, 0, 1,  0};
