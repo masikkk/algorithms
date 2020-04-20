@@ -3,6 +3,7 @@ package leetcode.leetcode;
 import java.util.Deque;
 import java.util.LinkedList;
 import javafx.util.Pair;
+import org.junit.jupiter.api.Test;
 
 /**
  * 岛屿个数
@@ -11,7 +12,28 @@ import javafx.util.Pair;
  * @create 2020-02-26 15:14
  */
 public class _200_NumberOfIslands {
-    private static class SolutionV2020 {
+    char[][] grid1 = {
+            {'1', '1', '1', '1', '0' },
+            {'1', '1', '0', '1', '0' },
+            {'1', '1', '0', '0', '0' },
+            {'0', '0', '0', '0', '0' }};
+    char[][] grid2 = {
+            {'1', '1', '0', '0', '0' },
+            {'1', '1', '0', '0', '0' },
+            {'0', '0', '1', '0', '0' },
+            {'0', '0', '0', '1', '1' }};
+    // 易错用例，dfs还要往左搜
+    char[][] grid3 = {
+            {'1', '1', '1'},
+            {'0', '1', '0'},
+            {'1', '1', '1'}};
+    // 易错用例，dfs还要往上搜，就是前后左右4个方向都要搜
+    char[][] grid4 = {
+            {'1', '0', '1', '1', '1' },
+            {'1', '0', '1', '0', '1' },
+            {'1', '1', '1', '0', '1' }};
+
+    private static class SolutionV2020Iterative {
         public int numIslands(char[][] grid) {
             if (null == grid || grid.length == 0) {
                 return 0;
@@ -57,31 +79,56 @@ public class _200_NumberOfIslands {
         }
     }
 
-    public static void main(String[] args) {
-        SolutionV2020 solutionV2020 = new SolutionV2020();
-        char[][] grid = {
-                {'1', '1', '1', '1', '0' },
-                {'1', '1', '0', '1', '0' },
-                {'1', '1', '0', '0', '0' },
-                {'0', '0', '0', '0', '0' }};
-        char[][] grid2 = {
-                {'1', '1', '0', '0', '0' },
-                {'1', '1', '0', '0', '0' },
-                {'0', '0', '1', '0', '0' },
-                {'0', '0', '0', '1', '1' }};
-        // 易错用例，dfs还要往左搜
-        char[][] grid3 = {
-                {'1', '1', '1'},
-                {'0', '1', '0'},
-                {'1', '1', '1'}};
-        // 易错用例，dfs还要往上搜，就是前后左右4个方向都要搜
-        char[][] grid4 = {
-                {'1', '0', '1', '1', '1' },
-                {'1', '0', '1', '0', '1' },
-                {'1', '1', '1', '0', '1' }};
-//        System.out.println(solutionV2020.numIslands(grid));
-//        System.out.println(solutionV2020.numIslands(grid2));
-        System.out.println(solutionV2020.numIslands(grid3));
-        System.out.println(solutionV2020.numIslands(grid4));
+    @Test
+    public void testSolutionV2020Iterative() {
+        SolutionV2020Iterative solutionV2020Iterative = new SolutionV2020Iterative();
+        System.out.println(solutionV2020Iterative.numIslands(grid1));
+        System.out.println(solutionV2020Iterative.numIslands(grid2));
+        System.out.println(solutionV2020Iterative.numIslands(grid3));
+        System.out.println(solutionV2020Iterative.numIslands(grid4));
+    }
+
+    private static class SolutionV2020Recursive {
+        int numRows, numColumns;
+        int[] dx = {-1, 0, 1,  0};
+        int[] dy = { 0, 1, 0, -1};
+        public int numIslands(char[][] grid) {
+            if (null == grid || 0 == grid.length) {
+                return 0;
+            }
+            numRows = grid.length;
+            numColumns = grid[0].length;
+
+            int islandsCount = 0;
+            for (int i = 0; i < numRows; i++) {
+                for (int j = 0; j < numColumns; j++) {
+                    if (grid[i][j] == '1') {
+                        dfs(grid, i, j);
+                        islandsCount++;
+                    }
+                }
+            }
+            return islandsCount;
+        }
+
+        // 从 (x,y) 开始一次深度优先搜索，把访问过的'1'都置为'0'
+        private void dfs(char[][] grid, int x, int y) {
+            if (x < 0 || y < 0 || x >= numRows || y >= numColumns || grid[x][y] != '1') {
+                return;
+            }
+            grid[x][y] = '0';
+            for (int k = 0; k < 4; k++) {
+                dfs(grid, x + dx[k], y + dy[k]);
+            }
+        }
+    }
+
+    @Test
+    public void testSolutionV2020Recursive() {
+        SolutionV2020Recursive solutionV2020Recursive = new SolutionV2020Recursive();
+        System.out.println(solutionV2020Recursive.numIslands(grid1));
+        System.out.println(solutionV2020Recursive.numIslands(grid2));
+        System.out.println(solutionV2020Recursive.numIslands(grid3));
+        System.out.println(solutionV2020Recursive.numIslands(grid4));
     }
 }
