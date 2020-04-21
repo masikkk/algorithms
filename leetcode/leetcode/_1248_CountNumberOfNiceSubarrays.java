@@ -1,5 +1,7 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 统计「优美子数组」
  * https://leetcode-cn.com/problems/count-number-of-nice-subarrays/
@@ -32,10 +34,47 @@ public class _1248_CountNumberOfNiceSubarrays {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testSolutionV2020Brutal() {
         SolutionV2020Brutal solutionV2020Brutal = new SolutionV2020Brutal();
         System.out.println(solutionV2020Brutal.numberOfSubarrays(new int[] {1,1,2,1,1}, 3));
         System.out.println(solutionV2020Brutal.numberOfSubarrays(new int[] {2,4,6}, 1));
         System.out.println(solutionV2020Brutal.numberOfSubarrays(new int[] {2,2,2,1,2,2,1,2,2,2}, 2));
+        System.out.println(solutionV2020Brutal.numberOfSubarrays(new int[] {2,2,1,1,2,2,1,1,2,2}, 2));
+    }
+
+    private static class SolutionV2020 {
+        public int numberOfSubarrays(int[] nums, int k) {
+            if (null == nums || nums.length < k) {
+                return 0;
+            }
+            // 原数组中所有奇数的下标
+            int[] odds = new int[nums.length];
+            int oddsCount = 0;
+            for(int i = 0, j = 0; i < nums.length; i++) {
+                if ((nums[i] & 1) == 1) {
+                    odds[oddsCount++] = i;
+                }
+            }
+            int res = 0;
+            for (int i = 0; i <= oddsCount - k; i++) {
+                // 左边界有多少种扩展，也就是左边界和上一个奇数之间的偶数个数+1
+                int leftCount = i-1 >= 0 ? odds[i] - odds[i-1] : odds[i] + 1;
+                // 右边界有多少种扩展，也就是右边界和下一个奇数之间的偶数个数+1
+                int rightCount = i+k < oddsCount ? odds[i+k] - odds[i+k-1] : nums.length - odds[i+k-1];
+                // 左边界扩展个数 * 右边界扩展个数，也就是第i个奇数开头的奇数个数为k的子数组能贡献的个数
+                res += leftCount * rightCount;
+            }
+            return res;
+        }
+    }
+
+    @Test
+    public void testSolutionV2020() {
+        SolutionV2020 solutionV2020 =  new SolutionV2020();
+        System.out.println(solutionV2020.numberOfSubarrays(new int[] {1,1,2,1,1}, 3));
+        System.out.println(solutionV2020.numberOfSubarrays(new int[] {2,4,6}, 1));
+        System.out.println(solutionV2020.numberOfSubarrays(new int[] {2,2,2,1,2,2,1,2,2,2}, 2));
+        System.out.println(solutionV2020.numberOfSubarrays(new int[] {2,2,1,1,2,2,1,1,2,2}, 2));
     }
 }
