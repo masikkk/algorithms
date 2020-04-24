@@ -18,22 +18,22 @@ public class MergeSort {
         int mid = (start + end) / 2;
         int[] leftNums = mergeSort(nums, start, mid);
         int[] rightNums = mergeSort(nums, mid + 1, end);
-        int[] res = new int[end - start + 1];
+        int[] merge = new int[end - start + 1];
         int i = 0, j = 0, k = 0;
         while (i < leftNums.length && j < rightNums.length) {
             if (leftNums[i] <= rightNums[j]) {
-                res[k++] = leftNums[i++];
+                merge[k++] = leftNums[i++];
             } else {
-                res[k++] = rightNums[j++];
+                merge[k++] = rightNums[j++];
             }
         }
         while (i < leftNums.length) {
-            res[k++] = leftNums[i++];
+            merge[k++] = leftNums[i++];
         }
         while (j < rightNums.length) {
-            res[k++] = rightNums[j++];
+            merge[k++] = rightNums[j++];
         }
-        return res;
+        return merge;
     }
 
     public static void main(String[] args) {
