@@ -3,7 +3,7 @@ package sort;
 import java.util.Arrays;
 
 /**
- * 冒泡排序
+ * 冒泡排序，O(n^2)，稳定
  * @author masikkk.com
  * @create 2020-02-24 11:48
  */

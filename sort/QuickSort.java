@@ -3,7 +3,7 @@ package sort;
 import java.util.Arrays;
 
 /**
- * 快速排序
+ * 快速排序，O(nlogn)，不稳定
  */
 public class QuickSort {
     // 快速排序

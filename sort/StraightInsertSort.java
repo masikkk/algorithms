@@ -1,8 +1,12 @@
 package sort;
 
-//直接插入排序，O(n^2)
+import java.util.Arrays;
+
+/**
+ * 直接插入排序，O(n^2)，稳定
+ */
 public class StraightInsertSort {
-    public void sort(int[] a) {
+    public static void sort(int[] a) {
         if (a.length <= 1) {
             return;
         }
@@ -19,11 +23,8 @@ public class StraightInsertSort {
 
     public static void main(String[] args) {
         int[] input = {2, 3, 13, 1, 7, 4, 9, 2};
-        StraightInsertSort straightInsertSort = new StraightInsertSort();
-        straightInsertSort.sort(input);
-        for (int a : input) {
-            System.out.print(a + " ");
-        }
+        sort(input);
+        System.out.println(Arrays.toString(input));
     }
 }
 
