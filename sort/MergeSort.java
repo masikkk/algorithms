@@ -15,12 +15,13 @@ public class MergeSort {
         if (start == end) {
             return new int[] {nums[start]};
         }
-        int mid = (start + end) / 2;
+        int mid = start + (end - start) / 2;
         int[] leftNums = mergeSort(nums, start, mid);
         int[] rightNums = mergeSort(nums, mid + 1, end);
         int[] merge = new int[end - start + 1];
         int i = 0, j = 0, k = 0;
         while (i < leftNums.length && j < rightNums.length) {
+            // 注意，这里必须是小于等于，如果写成小于，则归并排序就是不稳定的了
             if (leftNums[i] <= rightNums[j]) {
                 merge[k++] = leftNums[i++];
             } else {
