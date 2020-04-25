@@ -1,6 +1,5 @@
 package leetcode.offer;
 
-import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -33,12 +32,17 @@ public class _051_ReversePairInArray {
         System.out.println(solutionV2020Brutal.reversePairs(new int[] {7,5,6,4}));
     }
 
+    // 基于归并排序的逆序对统计
     private static class SolutionV2020MergeSort {
+        int count = 0;
         public int reversePairs(int[] nums) {
+            if (null == nums || nums.length < 2) {
+                return 0;
+            }
+            count = 0;
             int[] res = mergeSort(nums, 0, nums.length - 1);
-            System.out.println(Arrays.toString(res));
-
-            return 0;
+//            System.out.println(Arrays.toString(res));
+            return count;
         }
 
         public int[] mergeSort(int[] nums, int start, int end) {
@@ -53,12 +57,14 @@ public class _051_ReversePairInArray {
             while (i < leftNums.length && j < rightNums.length) {
                 if (leftNums[i] <= rightNums[j]) {
                     res[k++] = leftNums[i++];
+                    count += j;
                 } else {
                     res[k++] = rightNums[j++];
                 }
             }
             while (i < leftNums.length) {
                 res[k++] = leftNums[i++];
+                count += j;
             }
             while (j < rightNums.length) {
                 res[k++] = rightNums[j++];
