@@ -29,16 +29,16 @@ public class _046_Permutations {
         }
 
         // 回溯，permute 当前的排列， choices 当前可用的选择
-        private void backtrace(List<Integer> permute, Set<Integer> choices) {
+        private void backtrace(LinkedList<Integer> permute, Set<Integer> choices) {
             if (choices.size() == 0) {
                 res.add(new ArrayList<>(permute));
                 return;
             }
             for (Integer choice : new HashSet<>(choices)) {
-                permute.add(choice);
+                permute.push(choice);
                 choices.remove(choice);
                 backtrace(permute, choices);
-                permute.remove(choice);
+                permute.pop();
                 choices.add(choice);
             }
         }
