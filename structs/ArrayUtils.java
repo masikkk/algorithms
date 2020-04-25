@@ -1,6 +1,7 @@
 package structs;
 
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -67,6 +68,11 @@ public class ArrayUtils {
         for (char[] row : input) {
             System.out.println(Arrays.toString(row));
         }
+    }
+
+    // 打印 List<List>
+    public static <T> void printListList(List<List<T>> listList) {
+        listList.forEach(System.out::println);
     }
 
     @Test
