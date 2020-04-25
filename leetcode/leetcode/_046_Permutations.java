@@ -28,18 +28,24 @@ public class _046_Permutations {
             return res;
         }
 
-        // 回溯，permute 当前的排列， choices 当前可用的选择
+        /**
+         * 回溯
+         * @param permute 当前的排列，用 stack 存储方便在末尾 push(选择) 和 pop(撤销)， LinkedList 实现了 Deque 接口，可当做栈使用
+         * @param choices 当前可用的选择 集合
+         */
         private void backtrace(LinkedList<Integer> permute, Set<Integer> choices) {
             if (choices.size() == 0) {
+                // 剩余可用选择为0，结束，加入结果集
                 res.add(new ArrayList<>(permute));
                 return;
             }
+            // 遍历选择列表
             for (Integer choice : new HashSet<>(choices)) {
-                permute.push(choice);
-                choices.remove(choice);
-                backtrace(permute, choices);
-                permute.pop();
-                choices.add(choice);
+                permute.push(choice); // 选择 choice 加入排列
+                choices.remove(choice); // 把 choice 从剩余可用选择集合中删除
+                backtrace(permute, choices); // 递归进行后续选择
+                permute.pop(); // 回退撤销 choice 选择
+                choices.add(choice); // 把 choice 恢复到剩余可用选择集合
             }
         }
     }
