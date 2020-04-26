@@ -2,8 +2,12 @@ package leetcode.leetcode;
 
 import java.util.Arrays;
 
+/**
+ * 数组拆分 I
+ * https://leetcode-cn.com/problems/array-partition-i/
+ */
 public class _561_ArrayPartition1 {
-    private static class Solution {
+    private static class SolutionV2018 {
         public int arrayPairSum(int[] nums) {
             Arrays.sort(nums);//正序排序
             int sum = 0;
@@ -16,8 +20,7 @@ public class _561_ArrayPartition1 {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {1, 4, 3, 2};
-        System.out.println(solution.arrayPairSum(nums));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.arrayPairSum(new int[] {1, 4, 3, 2}));
     }
 }
