@@ -1,5 +1,7 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import structs.ListNode;
 
 /**
@@ -7,6 +9,9 @@ import structs.ListNode;
  * https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
  */
 public class _033_SearchInRotatedSortedArray {
+    /**
+     * 2018.3.2
+     */
     private static class SolutionV2018 {
         public int search(int[] nums, int target) {
             int low = 0;
@@ -34,6 +39,16 @@ public class _033_SearchInRotatedSortedArray {
         }
     }
 
+    @Test
+    public void testSolutionV2018() {
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println("SolutionV2018:");
+        System.out.println(solutionV2018.search(ListNode.stringToIntegerArray("[3, 1]"), 1));
+    }
+
+    /**
+     * 2020.2.16
+     */
     private static class SolutionV2020 {
         public int search(int[] nums, int target) {
             if (null == nums || nums.length == 0) {
@@ -66,11 +81,8 @@ public class _033_SearchInRotatedSortedArray {
         }
     }
 
-    public static void main(String[] args) {
-        SolutionV2018 solutionV2018 = new SolutionV2018();
-        System.out.println("SolutionV2018:");
-        System.out.println(solutionV2018.search(ListNode.stringToIntegerArray("[3, 1]"), 1));
-
+    @Test
+    public void testSolutionV2020() {
         SolutionV2020 solutionV2020 = new SolutionV2020();
         System.out.println("SolutionV2020:");
         System.out.println(solutionV2020.search(ListNode.stringToIntegerArray("[]"), 3));
@@ -81,5 +93,56 @@ public class _033_SearchInRotatedSortedArray {
         System.out.println(solutionV2020.search(ListNode.stringToIntegerArray("[4,5,6,7,0,1,2]"), 3));
         System.out.println(solutionV2020.search(ListNode.stringToIntegerArray("[6,7,1,2,3,4,5]"), 6));
         System.out.println(solutionV2020.search(ListNode.stringToIntegerArray("[3,4,5,6,7,8,1,2]"), 2));
+    }
+
+    /**
+     * 2020.4.27
+     */
+    private static class SolutionV2020V2 {
+        public int search(int[] nums, int target) {
+            if (null == nums || nums.length == 0) {
+                return -1;
+            }
+            int left = 0, right = nums.length - 1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                if (target == nums[mid]) {
+                    return mid;
+                }
+                if (right - left == 1) {
+                    return target == nums[left] ? left : (target == nums[right] ? right : -1);
+                }
+                if (nums[left] < nums[mid] ) {
+                    // 左边是升序，拐点在右边
+                    if (target >= nums[left] && target < nums[mid]) {
+                        right = mid - 1;
+                    } else {
+                        left = mid + 1;
+                    }
+                } else {
+                    // 右边是升序，拐点在左边
+                    if (target > nums[mid] && target <= nums[right]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+            }
+            return -1;
+        }
+    }
+
+    @Test
+    public void testSolutionV2020V2() {
+        SolutionV2020V2 solutionV2020V2 = new SolutionV2020V2();
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[]"), 3), -1);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[3]"), 3), 0);
+        // 易错用例
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[3, 1]"), 1), 1);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[3, 1, 2]"), 2), 2);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[4,5,6,7,0,1,2]"), 0), 4);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[4,5,6,7,0,1,2]"), 3), -1);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[6,7,1,2,3,4,5]"), 6), 0);
+        Assertions.assertEquals(solutionV2020V2.search(ListNode.stringToIntegerArray("[3,4,5,6,7,8,1,2]"), 2), 7);
     }
 }
