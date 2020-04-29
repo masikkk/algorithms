@@ -1,7 +1,11 @@
 package leetcode.leetcode;
 
+/**
+ * 搜索插入位置
+ * https://leetcode-cn.com/problems/search-insert-position/
+ */
 public class _035_SearchInsertPosition {
-    private static class Solution {
+    private static class SolutionV2018 {
         public int searchInsert(int[] nums, int target) {
             if (nums.length == 0) {
                 return 0;
@@ -23,8 +27,7 @@ public class _035_SearchInsertPosition {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] input = {1};
-        System.out.println(solution.searchInsert(input, 1));
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.searchInsert(new int[]{1}, 1));
     }
 }
