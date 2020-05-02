@@ -1,5 +1,6 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Test;
 import structs.ListNode;
 
 /**
@@ -35,15 +36,50 @@ public class _021_MergeTwoSortedLists {
         }
     }
 
-    public static void main(String[] args) {
-        String l1 = "[1,1,1]";
-        String l2 = "[1,1,2,3,4,5]";
-        ListNode l1List = ListNode.stringToListNode(l1);
-        ListNode l2List = ListNode.stringToListNode(l2);
-        System.out.println(ListNode.listNodeToString(l1List));
-        System.out.println(ListNode.listNodeToString(l2List));
+    @Test
+    public void testSolutionV2018() {
         SolutionV2018 solutionV2018 = new SolutionV2018();
-        ListNode mergeList = solutionV2018.mergeTwoLists(l1List, l2List);
-        System.out.println(ListNode.listNodeToString(mergeList));
+        System.out.println(ListNode.listNodeToString(solutionV2018.mergeTwoLists(
+                        ListNode.stringToListNode("[1,1,1]"),
+                        ListNode.stringToListNode("[1,1,2,3,4,5]"))));
+    }
+
+    private static class SolutionV2020 {
+        public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+            if (l1 == null || l2 == null) {
+                return l1 == null ? l2 : l1;
+            }
+            ListNode dumbHead = new ListNode(0);
+            ListNode k = dumbHead;
+            while (l1 != null || l2 != null) {
+                if ((l1 != null && l2 != null && l1.val < l2.val) || l2 == null) {
+                    k.next = l1;
+                    k = l1;
+                    l1 = l1.next;
+                } else {
+                    k.next = l2;
+                    k = l2;
+                    l2 = l2.next;
+                }
+            }
+            return dumbHead.next;
+        }
+    }
+
+    @Test
+    public void testSolutionV2020() {
+        SolutionV2020 solutionV2020 = new SolutionV2020();
+        System.out.println(ListNode.listNodeToString(solutionV2020.mergeTwoLists(
+                        ListNode.stringToListNode("[1,1,1]"),
+                        ListNode.stringToListNode("[1,1,2,3,4,5]"))));
+        System.out.println(ListNode.listNodeToString(solutionV2020.mergeTwoLists(
+                ListNode.stringToListNode("[1,2,4]"),
+                ListNode.stringToListNode("[1,3,4]"))));
+        System.out.println(ListNode.listNodeToString(solutionV2020.mergeTwoLists(
+                ListNode.stringToListNode("[]"),
+                ListNode.stringToListNode("[1,1]"))));
+        System.out.println(ListNode.listNodeToString(solutionV2020.mergeTwoLists(
+                ListNode.stringToListNode("[2,3]"),
+                ListNode.stringToListNode("[]"))));
     }
 }
