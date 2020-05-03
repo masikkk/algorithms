@@ -3,6 +3,7 @@ package leetcode.leetcode;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 /**
  * 最长非重复子串
@@ -16,7 +17,7 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
             int len = 0;
             String maxSub = "";
             String sub = "";
-            Map<Character, Integer> map = new HashMap<Character, Integer>();
+            Map<Character, Integer> map = new HashMap<>();
             for (int i = 0; i < s.length(); ) {
                 if (map.containsKey(s.charAt(i))) {
                     max = len > max ? len : max;
@@ -53,15 +54,16 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
             }
             return ans;
         }
-
-        public static void main(String[] args) {
-            SolutionV2018 solution = new SolutionV2018();
-            System.out.println(solution.lengthOfLongestSubstring("abba"));//abbba
-            System.out.println(solution.lengthOfLongestSubstring2("abba"));
-        }
     }
 
-    private static class SolutionV2020 {
+    @Test
+    public void testSolutionV2018() {
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.lengthOfLongestSubstring("abba"));//abbba
+        System.out.println(solutionV2018.lengthOfLongestSubstring2("abba"));
+    }
+
+    private static class SolutionV202001 {
         public int lengthOfLongestSubstring(String s) {
             if (null == s || 0 == s.length()) {
                 return 0;
@@ -82,13 +84,49 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
             }
             return maxLength;
         }
+    }
 
-        public static void main(String[] args) {
-            SolutionV2020 solutionV2020 = new SolutionV2020();
-            System.out.println(solutionV2020.lengthOfLongestSubstring("abcabcbb"));
-            System.out.println(solutionV2020.lengthOfLongestSubstring("bbbbb"));
-            System.out.println(solutionV2020.lengthOfLongestSubstring("pwwkew"));
-            System.out.println(solutionV2020.lengthOfLongestSubstring("2"));
+    @Test
+    public void testSolutionV202001() {
+        SolutionV202001 solutionV202001 = new SolutionV202001();
+        System.out.println(solutionV202001.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(solutionV202001.lengthOfLongestSubstring("bbbbb"));
+        System.out.println(solutionV202001.lengthOfLongestSubstring("pwwkew"));
+        System.out.println(solutionV202001.lengthOfLongestSubstring("2"));
+    }
+
+    private static class SolutionV202005 {
+        public int lengthOfLongestSubstring(String s) {
+            if (null == s || s.length() < 1) {
+                return 0;
+            }
+            int max = 0;
+            // map 保存窗口内的元素，字符 -> 下标
+            Map<Character, Integer> map = new HashMap<>();
+            char[] chars = s.toCharArray();
+            for (int i = 0; i < chars.length;) {
+                Character character = new Character(chars[i]);
+                if (!map.containsKey(character)) {
+                    map.put(character, i);
+                    max = Math.max(max, map.size());
+                    i++;
+                } else {
+                    // chars[i]和当前滑动窗口内字符重复，则下次滑动窗口从重复位置的下一个重新开始
+                    i = map.get(character) + 1;
+                    map.clear();
+                }
+            }
+            return max;
         }
+    }
+
+    @Test
+    public void testSolutionV202005() {
+        SolutionV202005 solutionV202005 = new SolutionV202005();
+        System.out.println(solutionV202005.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(solutionV202005.lengthOfLongestSubstring("bbbbb"));
+        System.out.println(solutionV202005.lengthOfLongestSubstring("pwwkew"));
+        System.out.println(solutionV202005.lengthOfLongestSubstring("2"));
+        System.out.println(solutionV202005.lengthOfLongestSubstring("aab"));
     }
 }
