@@ -28,7 +28,7 @@ public class TreeNode {
         preOrderTraverseRecursive(root.right);
     }
 
-    // 非递归现需遍历二叉树
+    // 非递归先序遍历二叉树
     public static void preOrderTraverseIterative(TreeNode root) {
         if (null == root) {
             return;
