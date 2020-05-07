@@ -1,5 +1,6 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Test;
 import structs.TreeNode;
 
 /**
@@ -8,7 +9,7 @@ import structs.TreeNode;
  * @author masikkk.com
  */
 public class _572_SubtreeOfAnotherTree {
-    private static class SolutionV2020 {
+    private static class SolutionV202001 {
         // 判断t是否s的子树
         public boolean isSubtree(TreeNode s, TreeNode t) {
             if (null == s && null == t) {
@@ -32,16 +33,43 @@ public class _572_SubtreeOfAnotherTree {
             return res;
         }
     }
+    
+    @Test
+    public void testSolutionV202001() {
+        SolutionV202001 solutionV202001 = new SolutionV202001();
+        System.out.println(solutionV202001.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2]"), TreeNode.stringToTreeNode("[4,1,2]")));
+        System.out.println(solutionV202001.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2,null,null,null,null,0]"), TreeNode.stringToTreeNode("[4,1,2]")));
+        System.out.println(solutionV202001.isSubtree(TreeNode.stringToTreeNode("[1,null,1,null,1,2]"), TreeNode.stringToTreeNode("[1,2]")));
+    }
 
-    public static void main(String[] ars) {
-        SolutionV2020 solutionV2020 = new SolutionV2020();
-//        System.out.println(solutionV2020.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2]"),
-//                TreeNode.stringToTreeNode("[4,1,2]")));
-//        System.out.println(solutionV2020.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2,null,null,null,null,0]"),
-//                TreeNode.stringToTreeNode("[4,1,2]")));
-        // 易错用例
-        String s = "[1,null,1,null,1,2]";
-        String t = "[1,2]";
-        System.out.println(solutionV2020.isSubtree(TreeNode.stringToTreeNode(s), TreeNode.stringToTreeNode(t)));
+    private static class SolutionV202005 {
+        public boolean isSubtree(TreeNode s, TreeNode t) {
+            if (null == s && null == t) {
+                return true;
+            }
+            if (null == s || null == t) {
+                return false;
+            }
+
+            return equals(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
+        }
+
+        public boolean equals(TreeNode root1, TreeNode root2) {
+            if (null == root1 && null == root2) {
+                return true;
+            }
+            if (null == root1 || null == root2) {
+                return false;
+            }
+            return root1.val == root2.val && equals(root1.left, root2.left) && equals(root1.right, root2.right);
+        }
+    }
+
+    @Test
+    public void testSolutionV202005() {
+        SolutionV202005 solutionV202005 = new SolutionV202005();
+        System.out.println(solutionV202005.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2]"), TreeNode.stringToTreeNode("[4,1,2]")));
+        System.out.println(solutionV202005.isSubtree(TreeNode.stringToTreeNode("[3,4,5,1,2,null,null,null,null,0]"), TreeNode.stringToTreeNode("[4,1,2]")));
+        System.out.println(solutionV202005.isSubtree(TreeNode.stringToTreeNode("[1,null,1,null,1,2]"), TreeNode.stringToTreeNode("[1,2]")));
     }
 }

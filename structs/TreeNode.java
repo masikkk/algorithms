@@ -18,6 +18,12 @@ public class TreeNode {
         val = x;
     }
 
+    public TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+
     // 递归先序遍历二叉树
     public static void preOrderTraverseRecursive(TreeNode root) {
         if (root == null) {
