@@ -24,7 +24,7 @@ public class _983_MinimumCostForTickets {
             return dp[0];
         }
 
-        // 找到 days[] 数组中 i 之后第一个大于等于 target 的元素的下标
+        // 找到 days[] 数组中 i 之后第一个大于等于 target 的元素的下标，这个方法复杂度为常数 O(1)，因为下标 j 最多移动 30 步
         private int findLeastIndexAfterN(int[] days, int i, int target) {
             int j = i;
             while (j < days.length && days[j] < target) {
