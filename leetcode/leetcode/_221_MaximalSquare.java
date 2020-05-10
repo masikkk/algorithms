@@ -41,9 +41,9 @@ public class _221_MaximalSquare {
             Queue<int[]> queue = new LinkedList<>();
             visited.add(new int[] {x, y});
             queue.offer(new int[] {x, y});
-
             while (!queue.isEmpty()) {
                 int levelCount = queue.size();
+                // 只有下一层结点全部在矩阵范围内，且值全是1时，边长 edge 才加1
                 for (int i = 0; i < levelCount; i++) {
                     int[] cur = queue.poll();
                     for (int k = 0; k < 3; k++) {
