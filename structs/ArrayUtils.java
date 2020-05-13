@@ -72,6 +72,7 @@ public class ArrayUtils {
 
     // 打印 List<List>
     public static <T> void printListList(List<List<T>> listList) {
+        System.out.println();
         listList.forEach(System.out::println);
     }
 
