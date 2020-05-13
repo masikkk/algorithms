@@ -11,45 +11,88 @@ import java.util.PriorityQueue;
  * @create 2020-03-03 14:45
  */
 public class _155_MinStack {
-    private static class MinStack {
-        private Deque<Integer> stack;
-        private PriorityQueue<Integer> priorityQueue;
+    private static class SolutionV202003 {
+        private static class MinStack {
+            private Deque<Integer> stack;
+            private PriorityQueue<Integer> priorityQueue;
 
-        /** initialize your data structure here. */
-        public MinStack() {
-            stack = new LinkedList<>();
-            // 优先队列，小顶堆，堆顶永远是最小值
-            priorityQueue = new PriorityQueue<>();
+            /** initialize your data structure here. */
+            public MinStack() {
+                stack = new LinkedList<>();
+                // 优先队列，小顶堆，堆顶永远是最小值
+                priorityQueue = new PriorityQueue<>();
+            }
+
+            public void push(int x) {
+                stack.push(x);
+                priorityQueue.offer(x);
+            }
+
+            public void pop() {
+                Integer i = stack.pop();
+                // remove(x) 的时间复杂度为O(n)
+                priorityQueue.remove(i);
+            }
+
+            public int top() {
+                return stack.peek();
+            }
+
+            public int getMin() {
+                return priorityQueue.peek();
+            }
         }
 
-        public void push(int x) {
-            stack.push(x);
-            priorityQueue.offer(x);
-        }
-
-        public void pop() {
-            Integer i = stack.pop();
-            // remove(x) 的时间复杂度为O(n)
-            priorityQueue.remove(i);
-        }
-
-        public int top() {
-            return stack.peek();
-        }
-
-        public int getMin() {
-            return priorityQueue.peek();
+        public static void main(String[] args) {
+            MinStack minStack = new MinStack();
+            minStack.push(-2);
+            minStack.push(0);
+            minStack.push(-3);
+            System.out.println(minStack.getMin());
+            minStack.pop();
+            System.out.println(minStack.top());
+            System.out.println(minStack.getMin());
         }
     }
 
-    public static void main(String[] args) {
-        MinStack minStack = new MinStack();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        System.out.println(minStack.getMin());
-        minStack.pop();
-        System.out.println(minStack.top());
-        System.out.println(minStack.getMin());
+    private static class SolutionV202005 {
+        private static class MinStack {
+            private Deque<Integer> minStack;
+            private Deque<Integer> dataStack;
+            /** initialize your data structure here. */
+            public MinStack() {
+                minStack = new LinkedList<>();
+                dataStack = new LinkedList<>();
+            }
+
+            public void push(int x) {
+                dataStack.push(x);
+                minStack.push(minStack.peek() != null && minStack.peek() < x ? minStack.peek() : x);
+            }
+
+            public void pop() {
+                dataStack.pop();
+                minStack.pop();
+            }
+
+            public int top() {
+                return dataStack.peek();
+            }
+
+            public int getMin() {
+                return minStack.peek();
+            }
+        }
+
+        public static void main(String[] args) {
+            MinStack minStack = new MinStack();
+            minStack.push(-2);
+            minStack.push(0);
+            minStack.push(-3);
+            System.out.println(minStack.getMin());
+            minStack.pop();
+            System.out.println(minStack.top());
+            System.out.println(minStack.getMin());
+        }
     }
 }
