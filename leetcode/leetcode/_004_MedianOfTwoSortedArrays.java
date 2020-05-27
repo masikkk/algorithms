@@ -70,7 +70,7 @@ public class _004_MedianOfTwoSortedArrays {
     }
 
     // 转化为求两个有序数组的第k小元素，二分搜索法解决
-    public static class SolutionV202005BinarySearch {
+    private static class SolutionV202005BinarySearch {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
             // 两个有序数组的中位数即第 k 小的数(m+n 是偶数时需要求第 k-1 小和第 k 小的数)
             int k = (nums1.length + nums2.length) / 2 + 1;
