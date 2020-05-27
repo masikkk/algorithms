@@ -69,9 +69,52 @@ public class _004_MedianOfTwoSortedArrays {
         System.out.println(solutionV202005Count.findMedianSortedArrays(new int[] {1, 2}, new int[] {3,4}));
     }
 
-    public static class SolutionV202005Binary {
+    // 转化为求两个有序数组的第k小元素，二分搜索法解决
+    public static class SolutionV202005BinarySearch {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-
+            // 两个有序数组的中位数即第 k 小的数(m+n 是偶数时需要求第 k-1 小和第 k 小的数)
+            int k = (nums1.length + nums2.length) / 2 + 1;
+            if ((nums1.length + nums2.length) % 2 == 1) {
+                return getKthLeastElement(nums1, nums2, 0, 0, k);
+            } else {
+                int preKthLeast = getKthLeastElement(nums1, nums2, 0, 0, k - 1); // 第 k-1 小的元素
+                int kthLeast = getKthLeastElement(nums1, nums2, 0, 0, k); // 第 k 小的元素
+                return (preKthLeast + kthLeast) / 2.0;
+            }
         }
+
+        // 返回升序数组 nums1[nums1Start:] 和 nums2[nums2Start:] 中第 k 小的元素
+        public int getKthLeastElement(int [] nums1, int [] nums2, int nums1Start, int nums2Start, int k) {
+            // nums1 和 nums2 其中之一已结束，直接返回另一个数组的第 k 个元素
+            if (nums1Start >= nums1.length || nums2Start >= nums2.length) {
+                return nums1Start >= nums1.length ? nums2[nums2Start + k - 1] : nums1[nums1Start + k - 1];
+            }
+            if (k == 1) {
+                return Math.min(nums1[nums1Start], nums2[nums2Start]);
+            }
+            int mid = k / 2;
+            int nums1Value = nums1Start + mid - 1 < nums1.length ? nums1[nums1Start + mid - 1] : nums1[nums1.length - 1];
+            int nums2Value = nums2Start + mid - 1 < nums2.length ? nums2[nums2Start + mid - 1] : nums2[nums2.length - 1];
+            if (nums1Value <= nums2Value) {
+                // 排除的元素个数
+                int excludeCount = nums1Start + mid - 1 < nums1.length ? mid : nums1.length - nums1Start;
+                // 从剩余子数组中找第 k - excludeCount 小的元素
+                return getKthLeastElement(nums1, nums2, nums1Start + mid, nums2Start, k - excludeCount);
+            } else {
+                // 排除的元素个数
+                int excludeCount = nums2Start + mid - 1 < nums2.length ? mid : nums2.length - nums2Start;
+                // 从剩余子数组中找第 k - excludeCount 小的元素
+                return getKthLeastElement(nums1, nums2, nums1Start, nums2Start + mid, k - excludeCount);
+            }
+        }
+    }
+
+    @Test
+    public void testSolutionV202005BinarySearch() {
+        SolutionV202005BinarySearch solutionV202005BinarySearch = new SolutionV202005BinarySearch();
+        System.out.println(solutionV202005BinarySearch.findMedianSortedArrays(new int[] {1, 3}, new int[] {2}));
+        System.out.println(solutionV202005BinarySearch.findMedianSortedArrays(new int[] {1, 3}, new int[] {2,4}));
+        System.out.println(solutionV202005BinarySearch.findMedianSortedArrays(new int[] {1, 2}, new int[] {3,4}));
+        System.out.println(solutionV202005BinarySearch.findMedianSortedArrays(new int[] {1}, new int[] {2,3,4,5,6}));
     }
 }
