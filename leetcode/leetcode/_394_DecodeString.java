@@ -11,13 +11,13 @@ import java.util.LinkedList;
 public class _394_DecodeString {
     private static class SolutionV202005 {
         public String decodeString(String s) {
-            char[] chars = s.toCharArray();
             Deque<String> stack = new LinkedList<>();
-            for (int i = 0; i < chars.length; i++) {
-                if (chars[i] != ']') {
-                    stack.push(String.valueOf(chars[i]));
+            for (char ch : s.toCharArray()) {
+                if (ch != ']') {
+                    // 非右括号，入栈
+                    stack.push(String.valueOf(ch));
                 } else {
-                    // 遇到右括号 ]
+                    // 遇到右括号 ]，弹出字符直到左括号 [
                     StringBuilder cur = new StringBuilder();
                     while (!stack.isEmpty() && !stack.peek().equals("[")) {
                         cur.insert(0, stack.pop());
@@ -25,6 +25,7 @@ public class _394_DecodeString {
                     stack.pop(); // 弹出 [
                     int count = 0; // 重复的次数
                     int radix = 1;
+                    // 弹出数字倒序拼成 count
                     while (!stack.isEmpty()) {
                         String str = stack.peek();
                         if (str.length() == 1 && str.charAt(0) >= '0' && str.charAt(0) <= '9') {
@@ -45,7 +46,7 @@ public class _394_DecodeString {
             // 所有元素出栈倒序组装字符串
             StringBuilder res = new StringBuilder();
             while (!stack.isEmpty()) {
-                res.insert(0, stack.pop());
+                res.append(stack.pollLast());
             }
             return res.toString();
         }
