@@ -15,11 +15,12 @@ http://masikkk.com/tags/LeetCode/
 
 4、目录 `others` 中是面试过程中，或者其他地方看到的题目
 
-5、2020.4.2 为项目增加 maven 支持，引入 JUnit5 测试框架
+5、2020.4.2 为项目增加 maven 支持，增加 pom.xml 文件，引入 JUnit5 测试框架
 
+# IDEA 项目配置
 clone 后用 IDEA 打开，进行如下设置：
 
 File -> Project Structure -> Modules
 
-需要把根目录 `.` 设为 Test Source Folders ，否则找不到 `@Test` 等 JUnit 中的类。
+需要把根目录 `.` 设为 Test Source Folders ，即根目录就是测试源码目录，否则找不到 `@Test` 等 JUnit 中的类。
 
