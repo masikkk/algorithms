@@ -20,7 +20,7 @@ public class _128_LongestConsecutiveSequence {
             }
             int maxLength = 0;
             for (int i : nums) {
-                // 只遍历没有出现在其他连续序列中的元素， 即 i-1 不存在
+                // 只遍历没有出现在其他连续序列中的元素， 即 i-1 不在 set 中的
                 if (!set.contains(i - 1)) {
                     int length = 1;
                     int j = i;
