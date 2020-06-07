@@ -19,7 +19,7 @@ import structs.ArrayUtils;
  * @author masikkk.com 2020-06-07 20:45
  */
 public class _126_WordLadder2 {
-    private static class SolutionV202006V1 {
+    private static class SolutionV202006 {
         Map<String, Set<String>> graph;
         public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
             // wordList 中不包含 endWord 直接返回空
@@ -98,11 +98,11 @@ public class _126_WordLadder2 {
     }
 
     public static void main(String[] args) {
-        SolutionV202006V1 solutionV202006V1 = new SolutionV202006V1();
-        ArrayUtils.printListList(solutionV202006V1.findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog")));
-        ArrayUtils.printListList(solutionV202006V1.findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log")));
-        ArrayUtils.printListList(solutionV202006V1.findLadders("hit", "hit", Arrays.asList("hit")));
-        ArrayUtils.printListList(solutionV202006V1.findLadders("cet", "ism",
+        SolutionV202006 solutionV202006 = new SolutionV202006();
+        ArrayUtils.printListList(solutionV202006.findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log","cog")));
+        ArrayUtils.printListList(solutionV202006.findLadders("hit", "cog", Arrays.asList("hot","dot","dog","lot","log")));
+        ArrayUtils.printListList(solutionV202006.findLadders("hit", "hit", Arrays.asList("hit")));
+        ArrayUtils.printListList(solutionV202006.findLadders("cet", "ism",
                 Arrays.asList("kid", "tag", "pup", "ail", "tun", "woo", "erg", "luz", "brr", "gay", "sip", "kay", "per", "val", "mes", "ohs", "now",
                         "boa", "cet", "pal", "bar", "die", "war", "hay", "eco", "pub", "lob", "rue", "fry", "lit", "rex", "jan", "cot", "bid", "ali",
                         "pay", "col", "gum", "ger", "row", "won", "dan", "rum", "fad", "tut", "sag", "yip", "sui", "ark", "has", "zip", "fez", "own",
