@@ -19,7 +19,6 @@ import structs.ArrayUtils;
  * @author masikkk.com 2020-06-07 20:45
  */
 public class _126_WordLadder2 {
-    // BFS 在遍历过程中搜索图中的邻接点，时间复杂度搞，21 / 39 个通过测试用例
     private static class SolutionV202006V1 {
         Map<String, Set<String>> graph;
         public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
