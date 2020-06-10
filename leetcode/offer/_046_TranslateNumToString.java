@@ -10,7 +10,7 @@ import java.util.Set;
  * @author masikkk.com 2020-06-09 18:07
  */
 public class _046_TranslateNumToString {
-    private static class SolutionV202006 {
+    private static class SolutionV202006BackTracking {
         Set<String> res;
         public int translateNum(int num) {
             res = new HashSet<>();
@@ -48,12 +48,13 @@ public class _046_TranslateNumToString {
     }
 
     public static void main(String[] args) {
-        SolutionV202006 solutionV202006 = new SolutionV202006();
-        System.out.println(solutionV202006.translateNum(12258));
-        System.out.println(solutionV202006.translateNum(25));
+        SolutionV202006BackTracking solutionV202006BackTracking = new SolutionV202006BackTracking();
+        System.out.println(solutionV202006BackTracking.translateNum(12258));
+        System.out.println(solutionV202006BackTracking.translateNum(25));
         // 易错用例，中间的0要忽略
-        System.out.println(solutionV202006.translateNum(100006));
-        System.out.println(solutionV202006.translateNum(0));
-        System.out.println(solutionV202006.translateNum(01));
+        System.out.println(solutionV202006BackTracking.translateNum(100006));
+        System.out.println(solutionV202006BackTracking.translateNum(0));
+        System.out.println(solutionV202006BackTracking.translateNum(01));
+        System.out.println(solutionV202006BackTracking.translateNum(100001));
     }
 }
