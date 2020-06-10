@@ -1,8 +1,11 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 判断整数是否回文数
  * https://leetcode-cn.com/problems/palindrome-number/
+ * @author masikkk.com 2020-06-10 11:05
  */
 public class _009_PalindromeNumber {
     private static class SolutionV2018 {
@@ -44,8 +47,39 @@ public class _009_PalindromeNumber {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testSolutionV2018() {
         SolutionV2018 solutionV2018 = new SolutionV2018();
         System.out.println(solutionV2018.isPalindrome(1221000));//-2147483648,2147447412,2147483647
+    }
+
+    private static class SolutionV202006 {
+        public boolean isPalindrome(int x) {
+            if (x < 0 || (x % 10) == 0) {
+                return x == 0 ? true : false;
+            }
+            // x 的逆序数
+            int reverse = 0;
+            while (reverse < x) {
+                reverse = reverse * 10 + x % 10;
+                if (reverse == x || reverse == (x / 10)) {
+                    return true;
+                }
+                x /= 10;
+            }
+            return false;
+        }
+    }
+
+    @Test
+    public void testSolutionV202006() {
+        SolutionV202006 solutionV202006 = new SolutionV202006();
+        System.out.println(solutionV202006.isPalindrome(11));
+        System.out.println(solutionV202006.isPalindrome(121));
+        System.out.println(solutionV202006.isPalindrome(-121));
+        System.out.println(solutionV202006.isPalindrome(10));
+        System.out.println(solutionV202006.isPalindrome(100));
+        System.out.println(solutionV202006.isPalindrome(101));
+        System.out.println(solutionV202006.isPalindrome(0));
     }
 }
