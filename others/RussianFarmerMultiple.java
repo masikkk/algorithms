@@ -34,9 +34,9 @@ public class RussianFarmerMultiple {
         long res = 0;
         while (b >= 1) {
             if (b % 2 == 1) {
-                res = (res + a) % k;
+                res = (res + a) % k; // 根据求余运算的加法分配律，可对中间结果先求余
             }
-            a = (a << 1) % k;
+            a = (a << 1) % k; // 根据求余运算的乘法结合律，可以对被乘数先求余
             b >>= 1;
         }
         return res;
