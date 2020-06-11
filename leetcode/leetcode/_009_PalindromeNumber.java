@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
  */
 public class _009_PalindromeNumber {
     private static class SolutionV2018 {
-        //Integer.MAX_VALUE范围内最大的回文数是2147447412，其逆置不会溢出
-        //如果x的逆置溢出，reverse会变成负的，肯定和x不相等，所以即使不考虑溢出此方法也能AC
+        // Integer.MAX_VALUE范围内最大的回文数是2147447412，其逆置不会溢出
+        // 如果x的逆置溢出，reverse会变成负的，肯定和x不相等，所以即使不考虑溢出此方法也能AC
         public boolean isPalindrome1(int x) {
             if (x < 0) {
                 return false;
@@ -21,7 +21,7 @@ public class _009_PalindromeNumber {
                 reverse = reverse * 10 + a % 10;
                 a = a / 10;
             }
-            return reverse == x ? true : false;
+            return reverse == x;
         }
 
         //只逆置x的后半段，和前半段比较
