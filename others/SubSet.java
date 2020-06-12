@@ -1,54 +1,38 @@
 package others;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
- * 快手一面
- * 集合的子集
- * 请编写一个方法，返回某集合的所有非空子集。
- * 给定一个int数组A和数组的大小int n，请返回A的所有非空子集。保证A的元素个数小于等于20，且元素互异。各子集内部从大到小排序,子集之间字典逆序排序，见样例。
- * 测试样例：
- * [123,456,789]
- * 返回：{[789,456,123],[789,456],[789,123],[789],[456 123],[456],[123]}
- * @author masikkk.com
- * @create 2020-03-27 15:48
+ * 滴滴国际 一面
+ * 给定数组 [a, b, c] 求出其所有子集，不包含空集
+ * @author masikkk.com 2020-06-11 19:51
  */
 public class SubSet {
-    ArrayList<ArrayList<Integer>> res;
-    public ArrayList<ArrayList<Integer>> getSubsets(int[] A, int n) {
-        if (null == A || A.length == 0 || n == 0) {
-            return null;
-        }
-        res = new ArrayList<>();
-        ArrayList<Integer> list = new ArrayList();
-        traceback(A, 0, list);
-        Collections.sort(res, (list1, list2) -> {
-            String str1 = list1.stream().map(String::valueOf).collect(Collectors.joining(""));
-            String str2 = list2.stream().map(String::valueOf).collect(Collectors.joining(""));
-            return str2.compareTo(str1);
-        });
-        return res;
+    Set<String> resSet;
+    public List<String> getSet(char[] chars) {
+        resSet = new HashSet<>();
+        backtrack("", chars, 0);
+        return new ArrayList<>(resSet);
     }
 
-    private void traceback(int[] A, int start, ArrayList<Integer> list) {
-        if (start >= A.length) { // 结束
-            if (!list.isEmpty()) {
-                Collections.sort(list, (a, b) -> b - a);
-                res.add(new ArrayList<>(list));
-            }
-            return;
+    private void backtrack(String choice, char[] chars, int i) {
+        if (i >= chars.length && !choice.equals("")) {
+            resSet.add(choice);
         }
-        // 不选start
-        traceback(A, start + 1, list);
-        list.add(A[start]); // 选start
-        traceback(A, start + 1, list);
-        list.remove((Integer) A[start]);
+        if (i < chars.length) {
+            // 不选 i
+            backtrack(choice, chars, i+1);
+            // 选 i
+            backtrack(choice + chars[i], chars, i+1);
+        }
     }
 
     public static void main(String[] args) {
-        SubSet subSet = new SubSet();
-        subSet.getSubsets(new int[]{123,456,789}, 3).forEach(System.out::println);
+        SubSet numSet = new SubSet();
+        System.out.println(numSet.getSet(new char[] {'a', 'b', 'c'}));
+        System.out.println(numSet.getSet(new char[] {'a', 'b', 'c', 'd'}));
     }
 }
