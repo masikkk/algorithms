@@ -1,10 +1,16 @@
 package leetcode.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 两数之和
+ * https://leetcode-cn.com/problems/two-sum/
+ * @author masikkk.com 2020-02-02 16:54
+ */
 public class _001_TwoSum {
-    private static class Solution {
+    private static class SolutionV2018 {
         public int[] twoSum(int[] nums, int target) {
             Map<Integer, Integer> map = new HashMap<>();
             int[] result = new int[2];
@@ -21,11 +27,7 @@ public class _001_TwoSum {
     }
 
     public static void main(String[] args) {
-        int[] input = {2, 7, 2, 15};
-        Solution solution = new Solution();
-        int[] output = solution.twoSum(input, 4);
-		for (int i : output) {
-			System.out.print(i + ",");
-		}
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(Arrays.toString(solutionV2018.twoSum(new int[]{2, 7, 2, 15}, 4)));
     }
 }
