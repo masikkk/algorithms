@@ -32,10 +32,10 @@ public class _015_3Sum {
                         left++;
                         right--;
                     } else if (nums[i] + nums[left] + nums[right] < 0) {
-                        // 三数之和比 0 小，左边界 left 增加
+                        // 三数之和比 0 小，左边界 left 右移
                         left++;
                     } else {
-                        // 三数之和比 0 大，右边界 right 减小
+                        // 三数之和比 0 大，右边界 right 左移
                         right--;
                     }
                 }
