@@ -22,8 +22,8 @@ public class _739_DailyTemperatures {
             for (int i = 0; i < T.length; i++) {
                 // 遇到比栈顶大的元素，循环出栈并计算结果
                 while (!monoStack.isEmpty() && T[i] > T[monoStack.peek()]) {
-                    int index = monoStack.pop();
-                    res[index] = i - index;
+                    int stackPeekIndex = monoStack.pop();
+                    res[stackPeekIndex] = i - stackPeekIndex;
                 }
                 monoStack.push(i);
             }
