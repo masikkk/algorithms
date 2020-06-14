@@ -8,7 +8,7 @@ package leetcode.leetcode;
 public class _070_ClimbingStairs {
     private static class SolutionV202006 {
         public int climbStairs(int n) {
-            // dp[i] 表示爬 n 阶台阶的方法数，则 dp[i] = dp[i-1] + dp[i-2]， dp[0] = 1, dp[1] = 1
+            // dp[i] 表示爬 i 阶台阶的方法数，则 dp[i] = dp[i-1] + dp[i-2], dp[0] = 1, dp[1] = 1
             int prePre = 1;
             int pre = 1;
             for (int i = 2; i <= n; i++) {
