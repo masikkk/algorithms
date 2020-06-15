@@ -22,8 +22,8 @@ public class _1300_SumOfMutatedArrayClosestToTarget {
             int low = 0, high = arr[arr.length - 1];
             while (low <= high) {
                 int mid = low + (high - low) / 2;
-                int midSum = sum(arr, preSum, mid);
-                int midPlus1Sum = sum(arr, preSum, mid + 1);
+                int midSum = mutatedSum(arr, preSum, mid);
+                int midPlus1Sum = mutatedSum(arr, preSum, mid + 1);
                 if (midSum == target || midPlus1Sum == target) {
                     return midSum == target ? mid : mid + 1;
                 }
@@ -41,18 +41,18 @@ public class _1300_SumOfMutatedArrayClosestToTarget {
                 // low 大于 high 表示数组无需改变任何值的和就最接近 target
                 return high;
             }
-            int valueLowerSum = sum(arr, preSum, valueLower); // 最接近 target 且小于 target 的和
-            int valueUpperSum = sum(arr, preSum, valueLower + 1); // 最接近 target 且大于 target 的和
+            int valueLowerSum = mutatedSum(arr, preSum, valueLower); // 最接近 target 且小于 target 的和
+            int valueUpperSum = mutatedSum(arr, preSum, valueLower + 1); // 最接近 target 且大于 target 的和
             return Math.abs(valueUpperSum - target) < Math.abs(valueLowerSum - target) ? valueLower + 1 : valueLower;
         }
 
         // 返回把升序数组 arr 中所有大于 x 的值都变为 x 后的元素和， preSum 是数组 arr 的前缀和
-        private int sum(int[] arr, int[] preSum, int x) {
+        private int mutatedSum(int[] arr, int[] preSum, int x) {
             int xIndex = binarySearch(arr, x);
             return preSum[xIndex] + x * (arr.length - xIndex);
         }
 
-        // 在升序数组 arr 中查找 x 第一次出现的位置下标，若 x 不存在返回应该插入的位置
+        // 在升序数组 arr 中查找 x 第一次出现的位置下标，若 x 不存在返回应该插入的位置。注意 arr 中可能有重复元素
         private int binarySearch(int[] arr, int x) {
             int res = -1;
             int low = 0, high = arr.length - 1;
@@ -81,9 +81,10 @@ public class _1300_SumOfMutatedArrayClosestToTarget {
 
     public static void main(String[] args) {
         SolutionV202006 solutionV202006 = new SolutionV202006();
-//        System.out.println(solutionV202006.findBestValue(new int[] {4,9,3}, 10));
-//        System.out.println(solutionV202006.findBestValue(new int[] {2,3,5}, 10));
-//        System.out.println(solutionV202006.findBestValue(new int[] {60864,25176,27249,21296,20204}, 56803));
+        System.out.println(solutionV202006.findBestValue(new int[] {4,9,3}, 10));
+        System.out.println(solutionV202006.findBestValue(new int[] {2,3,5}, 10));
+        System.out.println(solutionV202006.findBestValue(new int[] {60864,25176,27249,21296,20204}, 56803));
         System.out.println(solutionV202006.findBestValue(new int[] {2,3,5}, 11));
+        System.out.println(solutionV202006.findBestValue(new int[] {2,2,2}, 3));
     }
 }
