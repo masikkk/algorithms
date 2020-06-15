@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import structs.TrieNode;
+import org.junit.jupiter.api.Test;
 
 /**
  * 单词的压缩编码
@@ -45,8 +45,32 @@ public class _820_ShortEncodingOfWords {
         }
     }
 
+    @Test
+    public void testSolutionV2020() {
+        SolutionV2020 solutionV2020 = new SolutionV2020();
+        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"time", "me", "bell"}));
+        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"c", "bc", "abc"}));
+        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"bc", "abc", "c", "a", "b"}));
+    }
+
     // 官方前缀树解法
     private static class OfficeSolution {
+        private static class TrieNode {
+            public TrieNode[] children;
+            public int count;
+            public TrieNode() {
+                children = new TrieNode[26];
+                count = 0;
+            }
+            public TrieNode get(char c) {
+                if (children[c - 'a'] == null) {
+                    children[c - 'a'] = new TrieNode();
+                    count++;
+                }
+                return children[c - 'a'];
+            }
+        }
+
         public int minimumLengthEncoding(String[] words) {
             TrieNode trie = new TrieNode();
             Map<TrieNode, Integer> nodes = new HashMap();
@@ -69,12 +93,8 @@ public class _820_ShortEncodingOfWords {
         }
     }
 
-    public static void main(String[] args) {
-        SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"time", "me", "bell"}));
-        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"c", "bc", "abc"}));
-        System.out.println(solutionV2020.minimumLengthEncoding(new String[]{"bc", "abc", "c", "a", "b"}));
-
+    @Test
+    public void testOfficeSolution() {
         OfficeSolution officeSolution = new OfficeSolution();
         System.out.println(officeSolution.minimumLengthEncoding(new String[]{"time", "me", "bell"}));
         System.out.println(officeSolution.minimumLengthEncoding(new String[]{"c", "bc", "abc"}));
