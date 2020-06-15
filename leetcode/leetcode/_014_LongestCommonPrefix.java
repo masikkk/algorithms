@@ -1,7 +1,10 @@
 package leetcode.leetcode;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 最长公共前缀
+ * https://leetcode-cn.com/problems/longest-common-prefix/
  * @author madaimeng.com
  */
 public class _014_LongestCommonPrefix {
@@ -27,7 +30,13 @@ public class _014_LongestCommonPrefix {
         }
     }
 
-    private static class SolutionV2020 {
+    @Test
+    public void testSolutionV2018() {
+        SolutionV2018 solutionV2018 = new SolutionV2018();
+        System.out.println(solutionV2018.longestCommonPrefix(new String[] {}));
+    }
+
+    private static class SolutionV2019 {
         public String longestCommonPrefix(String[] strs) {
             if (0 == strs.length) {
                 return "";
@@ -44,18 +53,46 @@ public class _014_LongestCommonPrefix {
         }
     }
 
-    public static void main(String[] args) {
-        SolutionV2018 solution = new SolutionV2018();
-        String[] strs = {};
-        System.out.println(solution.longestCommonPrefix(strs));
+    @Test
+    public void testSolutionV2019() {
+        SolutionV2019 solutionV2019 = new SolutionV2019();
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{"abc", "abc"}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{"flower"}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{"abcdd", "a"}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{""}));
+        System.out.println(solutionV2019.longestCommonPrefix(new String[]{}));
+    }
 
-        SolutionV2020 solutionV2020 = new SolutionV2020();
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abc", "abc"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"flower"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{"abcdd", "a"}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{""}));
-        System.out.println(solutionV2020.longestCommonPrefix(new String[]{}));
+    private static class SolutionV202006 {
+        public String longestCommonPrefix(String[] strs) {
+            if (null == strs || strs.length < 1) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < strs[0].length(); i++) {
+                char ch = strs[0].charAt(i);
+                for (int j = 1; j < strs.length; j++) {
+                    if (i >= strs[j].length() || ch != strs[j].charAt(i)) {
+                        return sb.toString();
+                    }
+                }
+                sb.append(ch);
+            }
+            return sb.toString();
+        }
+    }
+
+    @Test
+    public void testSolutionV202006() {
+        SolutionV202006 solutionV202006 = new SolutionV202006();
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{"abc", "abc"}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{"flower"}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{"abcdd", "a"}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{""}));
+        System.out.println(solutionV202006.longestCommonPrefix(new String[]{}));
     }
 }
