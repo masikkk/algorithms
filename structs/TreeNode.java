@@ -188,7 +188,12 @@ public class TreeNode {
         System.out.println();
     }
 
-    // 根据层次遍历序列创建二叉树
+    /**
+     * 根据层次遍历序列创建二叉树
+     * @see leetcode.leetcode._297_SerializeAndDeserializeBinaryTree
+     * @param input
+     * @return
+     */
     public static TreeNode stringToTreeNode(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
