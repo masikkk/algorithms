@@ -12,12 +12,8 @@ public class _067_AddBinary {
             int i = a.length() - 1, j = b.length() - 1;
             byte carry = 0; // 进位
             while (i >= 0 || j >= 0 || carry != 0) {
-                if (i >= 0) {
-                    carry += a.charAt(i--) - '0';
-                }
-                if (j >= 0) {
-                    carry += b.charAt(j--) - '0';
-                }
+                carry += i >= 0 ? a.charAt(i--) - '0' : 0;
+                carry += j >= 0 ? b.charAt(j--) - '0' : 0;
                 sb.insert(0, String.valueOf(carry & 1));
                 carry >>= 1;
             }
