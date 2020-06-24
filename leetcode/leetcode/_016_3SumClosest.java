@@ -19,17 +19,17 @@ public class _016_3SumClosest {
                 // 固定 nums[i] 后的目标值
                 int thisTarget = target - nums[i];
                 // 固定 nums[i] 后双指针遍历数组
-                for (int j = i + 1, k = nums.length - 1; j < k;) {
-                    int twoSum = nums[j] + nums[k];
+                for (int left = i + 1, right = nums.length - 1; left < right;) {
+                    int twoSum = nums[left] + nums[right];
                     if (twoSum == thisTarget) {
                         return target;
                     }
                     if (twoSum < thisTarget) {
                         // 小于目标值，左边界右移增加两数之和
-                        j++;
+                        left++;
                     } else {
                         // 大于目标值，右边界左移减少两数之和
-                        k--;
+                        right--;
                     }
                     // 更新 closest
                     closest = Math.abs(thisTarget - twoSum) < Math.abs(target - closest) ? nums[i] + twoSum : closest;
