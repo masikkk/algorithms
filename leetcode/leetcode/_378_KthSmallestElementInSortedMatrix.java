@@ -10,13 +10,13 @@ public class _378_KthSmallestElementInSortedMatrix {
     private static class SolutionV202007 {
         public int kthSmallest(int[][] matrix, int k) {
             int left = matrix[0][0], right = matrix[matrix.length - 1][matrix[0].length - 1];
-            while (left <= right) {
+            while (left < right) {
                 int mid = left + (right - left) / 2;
                 int lessCount = countLess(matrix, mid); // 小于等于 mid 的元素个数
                 if (lessCount < k) {
                     left = mid + 1;
                 } else {
-                    right = mid - 1;
+                    right = mid;
                 }
             }
             return left;
