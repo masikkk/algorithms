@@ -13,7 +13,7 @@ public class _010_RegularExpressionMatching {
             boolean[][] dp = new boolean[s.length() + 1][p.length() + 1]; // 默认都是 false
             dp[0][0] = true;
 
-            // 遍历填表
+            // 遍历填表，i,j 遍历的是二维表格 dp 的下标
             for (int i = 0; i <= s.length(); i++) {
                 for (int j = 1; j <= p.length(); j++) {
                     if (j > 0 && p.charAt(j - 1) == '*') {
