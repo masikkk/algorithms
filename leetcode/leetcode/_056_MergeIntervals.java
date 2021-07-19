@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.util.Pair;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 合并区间

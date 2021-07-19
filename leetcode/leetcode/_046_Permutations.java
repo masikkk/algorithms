@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 全排列

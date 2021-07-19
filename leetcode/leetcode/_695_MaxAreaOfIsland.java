@@ -1,6 +1,6 @@
 package leetcode.leetcode;
 
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 岛屿的最大面积

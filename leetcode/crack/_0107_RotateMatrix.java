@@ -1,6 +1,6 @@
 package leetcode.crack;
 
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 《程序员面试金典（第 6 版）》面试题 01.07. 旋转矩阵

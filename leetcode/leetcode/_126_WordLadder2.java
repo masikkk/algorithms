@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 单词接龙 II

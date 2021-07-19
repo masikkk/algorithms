@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import javafx.util.Pair;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 01 矩阵

@@ -3,7 +3,7 @@ package leetcode.leetcode;
 import java.util.Deque;
 import java.util.LinkedList;
 import javafx.util.Pair;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 离所有陆地最远的海洋

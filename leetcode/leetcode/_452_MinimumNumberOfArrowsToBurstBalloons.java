@@ -1,7 +1,7 @@
 package leetcode.leetcode;
 
 import java.util.Arrays;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 用最少数量的箭引爆气球

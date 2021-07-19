@@ -1,6 +1,6 @@
 package leetcode.leetcode;
 
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 网格内三维柱体的表面积

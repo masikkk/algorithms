@@ -1,6 +1,6 @@
 package leetcode.leetcode;
 
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 车的可用捕获量

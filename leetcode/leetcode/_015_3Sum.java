@@ -3,7 +3,7 @@ package leetcode.leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import structs.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * 三数之和
