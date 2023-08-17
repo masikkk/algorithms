@@ -2,15 +2,22 @@ package utils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.Test;
 
 /**
  * 二维数组工具类
+ *
  * @author masikkk.com
  * @create 2020-02-29 22:53
  */
 public class ArrayUtils {
-    // 字符串转int二维数组
+    /**
+     * 字符串转int二维数组
+     *
+     * @param input
+     * @return
+     */
     public static int[][] stringToInt2DArray(String input) {
         input = input.trim().substring(1, input.length() - 1);
         String[] rows = input.split("],");
@@ -20,7 +27,7 @@ public class ArrayUtils {
             if (row.charAt(0) == '[') {
                 row = row.substring(1);
             }
-            if (row.charAt(row.length() -1 ) == ']') {
+            if (row.charAt(row.length() - 1) == ']') {
                 row = row.substring(0, row.length() - 1);
             }
             String[] columns = row.split(",");
@@ -33,7 +40,12 @@ public class ArrayUtils {
         return res;
     }
 
-    // 字符串转char二维数组
+    /**
+     * 字符串转char二维数组
+     *
+     * @param input
+     * @return
+     */
     public static char[][] stringToChar2DArray(String input) {
         input = input.trim().substring(1, input.length() - 1);
         String[] rows = input.split("],");
@@ -43,7 +55,7 @@ public class ArrayUtils {
             if (row.charAt(0) == '[') {
                 row = row.substring(1);
             }
-            if (row.charAt(row.length() -1 ) == ']') {
+            if (row.charAt(row.length() - 1) == ']') {
                 row = row.substring(0, row.length() - 1);
             }
             String[] columns = row.split(",");
@@ -56,24 +68,50 @@ public class ArrayUtils {
         return res;
     }
 
-    // 打印int二位数组
+    /**
+     * 打印int二位数组
+     *
+     * @param input
+     */
     public static void printInt2DArray(int[][] input) {
         for (int[] row : input) {
             System.out.println(Arrays.toString(row));
         }
     }
 
-    // 打印char二位数组
+    /**
+     * 打印char二位数组
+     *
+     * @param input
+     */
     public static void printChar2DArray(char[][] input) {
         for (char[] row : input) {
             System.out.println(Arrays.toString(row));
         }
     }
 
-    // 打印 List<List>
+    /**
+     * 打印 List<List>
+     *
+     * @param listList
+     * @param <T>
+     */
     public static <T> void printListList(List<List<T>> listList) {
         System.out.println();
         listList.forEach(System.out::println);
+    }
+
+    /**
+     * 生成随机int数组
+     * @param size
+     * @return
+     */
+    public static int[] randomIntArray(int size) {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = ThreadLocalRandom.current().nextInt(0, size * 10);
+        }
+        return array;
     }
 
     @Test
@@ -115,6 +153,12 @@ public class ArrayUtils {
 
     @Test
     public void testPrint2DArray() {
-        printInt2DArray(new int[][] {{0, 1, 2}, {2, 1}, {1}});
+        printInt2DArray(new int[][]{{0, 1, 2}, {2, 1}, {1}});
+    }
+
+    @Test
+    public void testRandomIntArray() {
+        int[] array = randomIntArray(10);
+        System.out.println(Arrays.toString(array));
     }
 }
