@@ -1,6 +1,7 @@
 package sort;
 
 import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 /**
  * 快速排序，O(nlogn)，不稳定
@@ -81,20 +82,63 @@ public class QuickSort {
     }
 
     public static class SolutionV2023 {
-        private int partition(int[] nums, int left, int right) {
-            int pivot = nums[left];
-            while (left <= right) {
-                while ()
+
+        public static int[] sort(int[] nums) {
+            quickSort(nums, 0, nums.length - 1);
+            return nums;
+        }
+
+        private static void quickSort(int[] nums, int left, int right) {
+            if (left >= right) {
+                return;
             }
+            int pivot = partition(nums, left, right);
+            quickSort(nums, 0, pivot - 1);
+            quickSort(nums, pivot + 1, right);
+        }
+
+        private static int partition(int[] nums, int left, int right) {
+            if (left >= right) {
+                return left;
+            }
+            int pivot = nums[left];
+            while (left < right) {
+                while (nums[right] >= pivot && left < right) {
+                    right--;
+                }
+                if (nums[right] < pivot) {
+                    nums[left++] = nums[right];
+                }
+                while (nums[left] <= pivot && left < right) {
+                    left++;
+                }
+                if (nums[left] > pivot) {
+                    nums[right--] = nums[left];
+                }
+            }
+            nums[left] = pivot;
+            return left;
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{4, 13, 2, 8, 1, 5, 1})));
-        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 2, 3, 1})));
-        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 1, 1, 2, 0, 0})));
-        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 1})));
+    @Test
+    public void testSolutionV2020() {
         System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{1, 5})));
+        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 1})));
+        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 2, 3, 1})));
         System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{1, 2, 3, 4, 5})));
+        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{4, 13, 2, 8, 1, 5, 1})));
+        System.out.println(Arrays.toString(SolutionV2020.sort(new int[]{5, 1, 1, 2, 0, 0})));
+    }
+
+    @Test
+    public void testSolutionV2023() {
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{1})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{1, 5})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{5, 1})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{5, 2, 3, 1})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{1, 2, 3, 4, 5})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{4, 13, 2, 8, 1, 5, 1})));
+        System.out.println(Arrays.toString(SolutionV2023.sort(new int[]{5, 1, 1, 2, 0, 0})));
     }
 }
