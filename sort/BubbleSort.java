@@ -10,7 +10,7 @@ import utils.ArrayUtils;
  * @create 2020-02-24 11:48
  */
 public class BubbleSort {
-    public static class SolutionV2020 {
+    private static class SolutionV2020 {
         public static void sort(int[] nums) {
             if (null == nums || 0 == nums.length) {
                 return;
@@ -33,7 +33,7 @@ public class BubbleSort {
         }
     }
 
-    public static class SolutionV2023 {
+    private static class SolutionV2023 {
         public static void sort(int[] array) {
             if (null == array || array.length == 0) {
                 return;

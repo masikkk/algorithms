@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * 快速排序，O(nlogn)，不稳定
  */
 public class QuickSort {
-    public static class SolutionV2020 {
+    private static class SolutionV2020 {
         // 快速排序
         public static int[] sort(int[] nums) {
             if (null == nums || nums.length < 2) {
@@ -81,7 +81,7 @@ public class QuickSort {
         }
     }
 
-    public static class SolutionV2023 {
+    private static class SolutionV2023 {
 
         public static int[] sort(int[] nums) {
             quickSort(nums, 0, nums.length - 1);
