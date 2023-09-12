@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
 import utils.ArrayUtils;
 
 /**
@@ -50,8 +52,39 @@ public class _046_Permutations {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testSolutionV2020() {
         SolutionV2020 solutionV2020 = new SolutionV2020();
         ArrayUtils.printListList(solutionV2020.permute(new int[] {1,2,3}));
+    }
+
+    private static class SolutionV2023 {
+        private List<List<Integer>> result = new ArrayList<>();
+
+        public List<List<Integer>> permute(int[] nums) {
+            Set<Integer> remaining = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+            backtrace(remaining, new ArrayList<>());
+            return result;
+        }
+
+        public void backtrace(Set<Integer> remaining, List<Integer> current) {
+            if (remaining.size() == 0) {
+                result.add(new ArrayList<>(current));
+                return;
+            }
+            for (Integer cur : remaining) {
+                Set<Integer> remainingCopy = new HashSet<>(remaining);
+                List<Integer> currentCopy = new ArrayList<>(current);
+                currentCopy.add(cur);
+                remainingCopy.remove(cur);
+                backtrace(remainingCopy, currentCopy);
+            }
+        }
+    }
+
+    @Test
+    public void testSolutionV2023() {
+        SolutionV2023 solutionV2023 = new SolutionV2023();
+        ArrayUtils.printListList(solutionV2023.permute(new int[] {1,2,3}));
     }
 }
